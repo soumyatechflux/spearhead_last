@@ -1,0 +1,177 @@
+/* CountriesTime.module.css */
+
+/* Default styles for larger screens */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeZoneContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.countryName {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: red;
+  width: 100px;
+  text-align: center;
+}
+
+.clockWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: content-box;
+  /* background-color: black; */
+  position: relative;
+}
+
+.customClock {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  /* border: 5px solid black; */
+  border-radius: 50%;
+  background: transparent;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  /* background: black; */
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: transform 0.5s cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.hourHand {
+  height: 4px;
+  background: red;
+}
+
+.minuteHand {
+  height: 3px;
+  background: blue;
+}
+
+.secondHand {
+  height: 2px;
+  background: white;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.clockNumber {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.number12 {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.number3 {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.number6 {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.number9 {
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+/* Styles for tablets */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .timeZoneContainer {
+    flex-direction: column;
+  }
+  
+  .clockWrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .countryName {
+    width: 80px;
+    font-size: 14px;
+  }
+
+  .customClock {
+    width: 80px;
+    height: 80px;
+  }
+
+  .clockNumber {
+    font-size: 12px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Show two watches per row */
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .timeZoneContainer {
+    margin-bottom: 0; /* Remove bottom margin for better alignment */
+  }
+  
+  .clockWrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .countryName {
+    width: 60px;
+    font-size: 12px;
+  }
+
+  .customClock {
+    width: 60px;
+    height: 60px;
+  }
+
+  .clockNumber {
+    font-size: 10px;
+  }
+}
