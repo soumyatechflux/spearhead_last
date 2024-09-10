@@ -4,6 +4,7 @@ import Footer from "@/components/layout/footer/Footer";
 import HomeCapabilities from "@/components/containers/home/HomeCapabilities";
 import ServiceCoreCapabilitiesBanner from "@/components/layout/banner/ServiceCoreCapabilitiesBanner";
 import CoreCapabilities from "@/components/containers/service-details/CoreCapabilities";
+import FooterTry from "@/components/layout/footer/FooterTry";
 // import CmnBanner from "@/components/layout/banner/CmnBanner";
 // import ServiceMain from "@/components/containers/ServiceMain";
 // import HomeTwoModal from "@/components/containers/home-two/HomeTwoModal";
@@ -24,7 +25,7 @@ const OurServices = () => {
       <ServiceCoreCapabilitiesBanner/>
       <CoreCapabilities/>
       {/* <HomeCapabilities/> */}
-      <Footer/>
+      <FooterTry/>
       {/* <CmnBanner title="Core Capabilities" navigation="Core Capabilities" /> */}
       
       {/* <ServiceMain /> */}

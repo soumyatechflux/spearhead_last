@@ -5,6 +5,7 @@ import HomeCapabilities from "@/components/containers/home/HomeCapabilities";
 import ServiceCoreCapabilitiesBanner from "@/components/layout/banner/ServiceCoreCapabilitiesBanner";
 import MoreAdvisoryServiceBanner from "@/components/layout/banner/MoreAdvisoryServiceBanner";
 import OurMission from "@/components/containers/OurMission"
+import FooterTry from "@/components/layout/footer/FooterTry";
 // import CmnBanner from "@/components/layout/banner/CmnBanner";
 // import ServiceMain from "@/components/containers/ServiceMain";
 // import HomeTwoModal from "@/components/containers/home-two/HomeTwoModal";
@@ -23,7 +24,7 @@ const MoreAdvisaory = () => {
     <Layout header={2} video={0}>
       <MoreAdvisoryServiceBanner/>
       <OurMission />
-      <Footer/>
+      <FooterTry/>
     </Layout>
     
   );

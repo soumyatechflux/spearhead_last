@@ -163,6 +163,18 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                         </button>
                         <ul className="navbar__sub-menu">
                           <li>
+                            <Link href="/project-branding" className={`${isActive("/project-branding") ? "  sub-active-tab" : ""}`}>Branding</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>PR</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Social Media</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Marketing</Link>
+                          </li>
+                          <li>
                             <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Samples of   Work</Link>
                           </li>
                           {/* <li>

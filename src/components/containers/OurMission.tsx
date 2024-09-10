@@ -37,7 +37,7 @@ const OurMission = () => {
         </div>
         <div className="row gaper">
           <div className="col-12 col-lg-6">
-            <div className="mission-s__single mission-s__single--alt fade-top">
+            <div className="mission-s__single mission-s__single--alt fade-top ">
               <h3>Creative Strategy Development</h3>
               <div className="section__content-cta">
                 <p className="primary-text">

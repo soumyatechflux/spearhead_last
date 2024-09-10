@@ -13,6 +13,8 @@ import NextPage from "@/components/containers/home/NextPage";
 import HomeApproch from "@/components/containers/home/HomeApproch";
 import CountriesTime from "@/components/containers/home/CountriesTime";
 import CounterSection from "@/components/containers/home/CounterSection";
+import Footer from "@/components/layout/footer/Footer";
+import FooterTry from "@/components/layout/footer/FooterTry";
 
 const Home = () => {
   const counterRef = useRef(null);
@@ -42,7 +44,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout header={2} footer={1} video={true}>
+    <Layout header={2}  video={true}>
       <HomeOneBanner />
       {/* <HomeAboutUs/> */}
       <Agency />
@@ -58,6 +60,7 @@ const Home = () => {
       </div>
       {/* <CountriesTime /> */}
       {/* <NextPage /> */}
+      <FooterTry/>
     </Layout>
   );
 };

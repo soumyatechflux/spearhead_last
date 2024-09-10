@@ -6,13 +6,14 @@ import ServiceCoreCapabilitiesBanner from "@/components/layout/banner/ServiceCor
 import MoreAdvisoryServiceBanner from "@/components/layout/banner/MoreAdvisoryServiceBanner";
 
 import Training from "@/components/containers/Training";
+import FooterTry from "@/components/layout/footer/FooterTry";
 
 const MoreAdvisaory = () => {
   return (
     <Layout header={2} video={0}>
       <MoreAdvisoryServiceBanner/>
       <Training/>
-      <Footer/>
+      <FooterTry/>
     </Layout>
     
   );

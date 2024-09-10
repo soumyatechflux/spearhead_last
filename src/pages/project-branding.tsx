@@ -5,20 +5,18 @@ import ProjectDetailsMain from "@/components/containers/project/ProjectDetailsMa
 import UxProcess from "@/components/containers/service-details/UxProcess";
 import Footer from "@/components/layout/footer/Footer";
 import Branding from "@/components/containers/project/ProjectBranding";
+import ProjectBrandingBanner from "@/components/layout/banner/ProjectBrandingBanner";
+import FooterTry from "@/components/layout/footer/FooterTry";
 import ProjectBranding from "@/components/containers/project/ProjectBranding";
 
 const ProjectDetails = () => {
   return (
     <Layout header={2} video={0}>
-      <CmnBanner
-        title="Brand Development"
-        navigation="Brand Development"
-        parent="Projects"
-        parentLink="our-projects"
-      />
+      <ProjectBrandingBanner/>
       <ProjectBranding/>
+      {/* <Branding/> */}
       {/* <ProjectDetailsMain /> */}
-      <Footer />
+      <FooterTry />
       {/* <UxProcess /> */}
     </Layout>
   );

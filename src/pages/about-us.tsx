@@ -14,6 +14,7 @@ import HomeApproch from "@/components/containers/home/HomeApproch";
 import HomeSponsor from "@/components/containers/home/HomeSponsor";
 import CountriesTime from "@/components/containers/home/CountriesTime";
 import Footer from "@/components/layout/footer/Footer";
+import FooterTry from "@/components/layout/footer/FooterTry";
 const AboutUs = () => {
   return (
     <Layout header={2} video={0}>
@@ -21,7 +22,7 @@ const AboutUs = () => {
       <HomeTwoModal />
       {/* <Agency /> */}
       <HomeAboutUs/>
-      <Footer/>
+      <FooterTry/>
       {/* <TeamMembers /> */}
       {/* <HomeTestimonial /> */}
       {/* <AboutSponsor /> */}

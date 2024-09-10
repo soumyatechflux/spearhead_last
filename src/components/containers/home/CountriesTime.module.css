@@ -3,18 +3,18 @@
 /* Default styles for larger screens */
 .container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 1rem;
-  justify-content: center;
+  /* flex-wrap: wrap; */
+  gap: 0.1rem;
+  /* padding: 1rem; */
+  /* justify-content: center; */
   align-items: center;
 }
 
 .timeZoneContainer {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .countryName {
@@ -22,15 +22,15 @@
   margin-bottom: 0.8rem;
   color: white;
   width: 100px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .clockWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: 2px solid white;
   border-radius: 50%;
   padding: 5px;
@@ -41,8 +41,8 @@
 
 .customClock {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   /* border: 5px solid black; */
   border-radius: 50%;
   background: transparent;
@@ -61,12 +61,12 @@
 
 .hourHand {
   height: 4px;
-  background: red;
+  background: #ffffff;
 }
 
 .minuteHand {
   height: 3px;
-  background: blue;
+  background: #ffffff;
 }
 
 .secondHand {

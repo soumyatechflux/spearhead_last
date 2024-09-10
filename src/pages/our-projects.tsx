@@ -6,6 +6,7 @@ import WorkStepsProject from "@/components/containers/project/WorkStepsProject";
 import CtaTwo from "@/components/containers/service-details/CtaTwo";
 import Footer from "@/components/layout/footer/Footer";
 import HomeProjectBanner from "@/components/layout/banner/HomeProjectBanner";
+import FooterTry from "@/components/layout/footer/FooterTry";
 
 const OurProjects = () => {
   return (
@@ -15,7 +16,7 @@ const OurProjects = () => {
       <ProjectMain />
       {/* <WorkStepsProject /> */}
       <CtaTwo />
-      <Footer/>
+      <FooterTry/>
     </Layout>
   );
 };
