@@ -144,12 +144,13 @@
 }
 
 /* Styles for phones */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(2, 1fr); /* Show two watches per row */
-    gap: 1rem;
+    gap: 5px;
     padding: 0.5rem;
+    margin-top: 30px;
   }
   
   .timeZoneContainer {

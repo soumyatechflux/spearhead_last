@@ -40,7 +40,7 @@ const HomeCapabilities = () => {
 
   return (
     <>
-      <section className="section work-steps fade-wrapper">
+      <section className="section work-steps fade-wrapper mt-3">
         <div className="container">
           <div className="row">
             <div className="col-12">

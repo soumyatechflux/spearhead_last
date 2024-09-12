@@ -78,7 +78,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center; 
-  padding: 30px; 
+  padding: 0 10px; 
   box-sizing: border-box;
 }
 
@@ -96,12 +96,15 @@
   width: 370px;
   height: 370px;
   border-radius: 50%;
+  padding: 0 8px;
 }
 
 .ceo-msg{
  font-size: 19px;
  word-spacing: 2px;
  margin: 0;
+ text-align: justify;
+    padding: 0 10px;
 }
 //services
 
@@ -4440,6 +4443,12 @@ select {
   
  align-items:center;
  }
+
+ @media(max-width:600px){
+    .card {
+      width: 95%;
+  }
+ }
  
  @media(min-width:1000px){
   .countries-time-footer{
@@ -4469,14 +4478,86 @@ select {
  }
 
 
- //Branding.tsx
+ //Branding casestusy.tsx
 
  .heading{
-  color: #ff7425 !important;
+  color: #ffffff;
+  border-bottom: 3px solid #ff7425 ;
  }
  .box-border{
-  border: solid 1px;
-  
- }
+  // border: solid 1px;
+  // border-radius: 110px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 50px;
+    margin: 10px 0;
+}
+.box-border:hover{
+  // position: relative;
+    z-index: 2;
+    // padding: 20px 20px;
+    border: 1px dashed #414141;
+    background-color: var(--black);
+    // border-radius: 100px;
+    // overflow: hidden;
+    // text-transform: capitalize;
+    transition: var(--transition);
+ 
+    // position: absolute;
+    // inset: 0px;
+    // width: 0%;
+    // border-radius: 100px;
+    // background: linear-gradient(90deg, var(--primary-color) 0%, rgba(255, 116, 37, 0) 60.08%);
+    // z-index: -1;
+    transition: var(--transition);
+}
+.case-study-align{
+  text-align: justify;
+  padding: 5px;
+}
+.casestudy-button{
+  padding: 30px 100px;
+}
 
+.heading_title{
+  padding-bottom: 30px;
+}
 
+.heading4 {
+  position: relative;
+  padding-left: 10px; /* Space between the heading text and the vertical border */
+  padding-bottom: 10px; 
+  padding-top: 10px; 
+  font-weight: 700;
+}
+
+.heading6{
+  margin-top: 10px;
+}
+.heading4::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Align the vertical border to the start (left) of the heading */
+    top: 50%; /* Start from the middle */
+    transform: translateY(-50%); /* Center the border vertically */
+    height: 65%; /* Adjust the height of the border */
+    width: 4px; /* Adjust the thickness of the border */
+    background-color: #ff7425; /* Adjust the border color */
+  }
+  .case-study-overview,.case-study-challenge,.case-study-approach,.case-study-outcome,.ase-study-conclusion{
+    width: 75%;
+    // padding-bottom: 100px;
+  }
+  .case-study-challenge,.case-study-outcome{
+    margin-left: 25%;
+  }
+.arrow-img{
+  color: transparent;
+  height: auto;
+    width: 44% !important;
+    transform: translateX(66%) rotate(-6deg);
+}
+
+.arrow3-img{
+  transform: translateX(-19%) translateY(-67px) rotate(-34deg);
+  width: 40%;
+}

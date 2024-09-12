@@ -122,8 +122,8 @@ const Agency = () => {
   return (
     <section className="section agency">
       <div className="container">
-        <div className="row gaper ">
-          <div className="col-12 col-lg-6">
+        <div className="row gaper pt-5">
+          <div className="col-11 col-lg-6">
             <div className="agency__thumb">
               {/* <Image
                 src={experience}
@@ -306,7 +306,7 @@ const Agency = () => {
            {/* <div className="container"> */}
             <div className="row justify-content-center">
               <div className="col-12 col-lg-8 col-xl-8 ceo-message">
-                <div className="ceo-quote my-5">
+                <div className="ceo-quote mb-5">
                 {/* <i className="fa-solid fa-quote-right"></i> */}
                 {/* <FaQuoteLeft /> */}
                 <Image

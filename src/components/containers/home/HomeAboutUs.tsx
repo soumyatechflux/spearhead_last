@@ -124,7 +124,7 @@ const HomeAboutUs = () => {
   return (
     <section className="section agency">
       <div className="container">
-        <div className="row gaper ">
+        <div className="row gaper pt-5">
           <div className="col-12 col-lg-6">
             <div className="agency__thumb">
               

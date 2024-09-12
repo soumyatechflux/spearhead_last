@@ -157,7 +157,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         <button
                           aria-label="dropdown menu"
-                          className={`navbar__dropdown-label${isActive(["/our-projects", "/project-single"]) ? " active-tab" : ""}`}
+                          className={`navbar__dropdown-label${isActive(["/our-projects", "/project-single","/project-branding"]) ? " active-tab" : ""}`}
                         >
                           Projects
                         </button>

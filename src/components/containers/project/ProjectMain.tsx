@@ -7,6 +7,7 @@ import hrthree from "public/images/projects/hr-three.png";
 import hrfour from "public/images/projects/hr-four.png";
 import hrfive from "public/images/projects/hr-five.png";
 import hrsix from "public/images/projects/hr-six.png";
+import branding from "public/images/projects/branding.jpeg";
 
 
 
@@ -40,7 +41,7 @@ const ProjectMain: React.FC = () => {
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', // Darker shadow for black theme
       display: 'flex',
       flexDirection: 'column' as 'column', 
-      height:'100%'
+      // height:'100%'
     },
     image: {
       width: '100%',
@@ -66,7 +67,7 @@ const ProjectMain: React.FC = () => {
         <div style={styles.description}>
         <Link href="project-branding">
           <div style={styles.item}>
-              <Image src={hrone} alt="Brand Development" style={styles.image} />
+              <Image src={branding} alt="Brand Development" style={styles.image} />
               <div className="text-center" style={styles.content}>
                 <h2 style={styles.title}>Branding</h2>
               

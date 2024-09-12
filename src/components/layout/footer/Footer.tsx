@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer
-      className="footer section pb-0"
+      className="footer section pb-0 pt-3"
       style={{ 
         backgroundImage: "url('/images/footer/footer-bg.png')" 
         // backgroundImage: "url('/images/Black.mp4')"
@@ -19,7 +19,7 @@ const Footer = () => {
 
         <div className="row gaper">
           <div className="col-12 col-lg-4 col-xl-3">
-            <div className="footer__single">
+            <div className="footer__single pt-3">
               <Link href="/" className="logo">
                 <Image style={{height:"30px", width:"100px", borderRadius:"100%"}} src={logo} alt="Image" />
               </Link>

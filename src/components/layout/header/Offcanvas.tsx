@@ -127,12 +127,25 @@ const Offcanvas = ({ openNav, setOpenNav }: HeaderProps) => {
                   <ul
                     className={`navbar__sub-menu ${isSubMenuOpen("projects")}`}
                   >
-                    <li>
+                    {/* <li>
                       <Link href="our-projects">Samples of   Work</Link>
                     </li>
-                    {/* <li>
-                      <Link href="project-single">Project Details</Link>
-                    </li> */}
+                     */}
+                     <li>
+                            <Link href="/project-branding" >Branding</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" >PR</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" >Social Media</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" >Marketing</Link>
+                          </li>
+                          <li>
+                            <Link href="our-projects" >Samples of   Work</Link>
+                          </li>
                   </ul>
                 </li>
                 <li className="navbar__item navbar__item--has-children nav-fade">
@@ -249,3 +262,16 @@ const Offcanvas = ({ openNav, setOpenNav }: HeaderProps) => {
 };
 
 export default Offcanvas;
+
+
+
+
+
+
+
+
+
+
+
+
+

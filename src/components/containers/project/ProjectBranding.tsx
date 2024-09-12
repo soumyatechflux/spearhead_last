@@ -7,7 +7,7 @@ import hrthree from "public/images/projects/hr-three.png";
 import hrfour from "public/images/projects/hr-four.png";
 import hrfive from "public/images/projects/hr-five.png";
 import hrsix from "public/images/projects/hr-six.png";
-
+import branding from "public/images/projects/branding.jpeg";
 
 
 
@@ -28,7 +28,7 @@ const ProjectBranding: React.FC = () => {
       color: '#fff', // White text for heading
     },
     description: {
-      display: 'grid',
+      // display: 'grid',
       gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
       columnGap: '10rem',
       rowGap:'4rem',
@@ -38,8 +38,8 @@ const ProjectBranding: React.FC = () => {
       // borderRadius: '8px',
       overflow: 'hidden',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', // Darker shadow for black theme
-      display: 'flex',
-      flexDirection: 'column' as 'column', 
+      // display: 'flex',
+      // flexDirection: 'column' as 'column', 
       height:'100%'
     },
     image: {
@@ -64,18 +64,28 @@ const ProjectBranding: React.FC = () => {
       <div style={styles.intro}>
         {/* <h1 style={styles.heading}>Our Expertise</h1> */}
         <div style={styles.description}>
-        <Link href="project-one">
-          <div style={styles.item}>
-              {/* <Image src={hrone} alt="Brand Development" style={styles.image} /> */}
-              <div style={styles.content}>
+        {/* <Link href="project-one"> */}
+          <div style={styles.item} className="row">
+            <div className="col-12 col-lg-6">
+               <Image src={branding} alt="Brand Development" style={styles.image} />
+            </div>
+             
+              <div style={styles.content} className="col-12 col-lg-6">
                 <h2 style={styles.title}>Branding</h2>
-                <p style={styles.text}>
-                Welcome to Spearhead Creativity's Brand Development page, where we transform visions into iconic brands. In the bustling marketplace, a distinct and memorable brand identity is essential. Our experts at Spearhead Creativity craft and 
+                <p className="ceo-msg">
+                Welcome to Spearhead Creativity's Brand Development page, where we transform visions into iconic brands. In the bustling marketplace, a distinct and memorable brand identity is essential.<br/><br/> Our experts at Spearhead Creativity craft and 
                 refine brand stories that captivate and connect. Whether it’s designing impactful logos or creating a cohesive brand voice, we ensure your business stands out and resonates with your audience. Embark on a branding journey with us and position your company as a leader in your industry.
                 </p>
               </div>
           </div>
-        </Link>
+          <div>
+          <div className="footer__cta text-start mt-5 text-center">
+                <Link href="project-branding-case-study" className="btn btn--secondary-2 casestudy-button">
+                 Explore Our Work
+                </Link>
+              </div>
+          </div>
+        {/* </Link> */}
  
         
         </div>
