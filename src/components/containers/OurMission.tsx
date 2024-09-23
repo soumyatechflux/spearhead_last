@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Londan from "public/images/AdvisoryService/one.jpg";
 import paris from "public/images/AdvisoryService/two.jpg";
@@ -7,6 +7,32 @@ import four from "public/images/AdvisoryService/four.jpg";
 import five from "public/images/AdvisoryService/five.jpg";
 
 const OurMission = () => {
+  const elementRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      });
+    });
+
+    const element = elementRef.current;
+    if (element) {
+      observer.observe(element);
+    }
+
+    // Cleanup observer on unmount
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   return (
     <section className="section mission-s fade-wrapper">
       <div className="container">
@@ -36,9 +62,10 @@ const OurMission = () => {
           </div>
         </div>
         <div className="row gaper">
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top ">
-              <h3>Creative Strategy Development</h3>
+              <h3   ref={elementRef}
+      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Creative Strategy Development</h3>
               <div className="section__content-cta">
                 <p className="primary-text">
                 We work closely with you to devise creative strategies that align with your business objectives and 
@@ -47,19 +74,22 @@ const OurMission = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
               <Image src={dubai} alt="Image" className="adv-img" style={{width:'100%'}}/>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+
+
+          <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
               <Image src={Londan} alt="Image" className="adv-img" style={{width:'100%'}}/>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3>Ideation Workshops</h3>
+              <h3   ref={elementRef}
+      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Ideation Workshops</h3>
               <div className="section__content-cta">
                 <p className="primary-text">
                 Our interactive and collaborative workshops ignite a spark of creativity among your team. Through thought-provoking exercises and 
@@ -68,9 +98,10 @@ const OurMission = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3>Trend Analysis and Market Research</h3>
+              <h3   ref={elementRef}
+      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Trend Analysis and Market Research</h3>
               <div className="section__content-cta">
                 <p className="primary-text">
                 Stay ahead of the curve with our comprehensive trend analysis and market research services. We analyze industry trends, 
@@ -79,19 +110,22 @@ const OurMission = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
               <Image src={paris} alt="Image" className="adv-img" style={{width:'100%'}}/>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+
+
+          <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
               <Image src={four} alt="Image" className="adv-img" style={{width:'100%'}}/>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3>Innovation Roadmapping</h3>
+              <h3   ref={elementRef}
+      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Innovation Roadmapping</h3>
               <div className="section__content-cta">
                 <p className="primary-text">
                 Our experts assist you in creating a roadmap for innovation, enabling you to implement new ideas seamlessly. We identify potential bottlenecks, 
@@ -100,9 +134,10 @@ const OurMission = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3>Creative Evaluation and Optimization</h3>
+              <h3   ref={elementRef}
+      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Creative Evaluation and Optimization</h3>
               <div className="section__content-cta">
                 <p className="primary-text">
                 We conduct rigorous evaluations of your creative campaigns, identifying areas for improvement and optimization. Through 
@@ -111,7 +146,7 @@ const OurMission = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
               <Image src={five} alt="Image" className="adv-img" style={{width:'100%'}}/>
             </div>

@@ -157,7 +157,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         <button
                           aria-label="dropdown menu"
-                          className={`navbar__dropdown-label${isActive(["/our-projects", "/project-single","/project-branding"]) ? " active-tab" : ""}`}
+                          className={`navbar__dropdown-label${isActive(["/our-projects", "/project-single","/project-branding","/project-PR","/project-social-media","/project-marketing"]) ? " active-tab" : ""}`}
                         >
                           Projects
                         </button>
@@ -166,17 +166,17 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                             <Link href="/project-branding" className={`${isActive("/project-branding") ? "  sub-active-tab" : ""}`}>Branding</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>PR</Link>
+                            <Link href="/project-PR" className={`${isActive("/project-PR") ? "  sub-active-tab" : ""}`}>PR</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Social Media</Link>
+                            <Link href="/project-social-media" className={`${isActive("/project-social-media") ? "  sub-active-tab" : ""}`}>Social Media</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Marketing</Link>
+                            <Link href="/project-marketing" className={`${isActive("/project-marketing") ? "  sub-active-tab" : ""}`}>Marketing</Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <Link href="our-projects" className={`${isActive("/our-projects") ? "  sub-active-tab" : ""}`}>Samples of   Work</Link>
-                          </li>
+                          </li> */}
                           {/* <li>
                             <Link href="project-single" className={`${isActive("/project-single") ? "  sub-active-tab" : ""}`}>Project Details</Link>
                           </li> */}
@@ -185,7 +185,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         <button
                           aria-label="dropdown menu"
-                          className={`navbar__dropdown-label${isActive(["/more-advisaory", "/monymind-investment","/sakal-family-office","/more-training"]) ? " active-tab" : ""}`}
+                          className={`navbar__dropdown-label${isActive(["/more-advisaory", "/monymind-investment","/sakal-family-office","/more-training-dev"]) ? " active-tab" : ""}`}
                         >
                           More
                         </button>
@@ -195,13 +195,13 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                             <Link href="more-advisaory"  className={`${isActive("/more-advisaory") ? " sub-active-tab" : ""}`}>Spearhead Creativity Advisory Service</Link>
                           </li>
                           <li>
-                            <Link href="monymind-investment" >Moneymind Investment</Link>
+                            <Link href="monymind-investment" className={`${isActive("/monymind-investment") ? " sub-active-tab" : ""}`}>Moneymind Investment</Link>
                           </li>
                           <li>
-                            <Link href="sakal-family-office">Sakal Family Office</Link>
+                            <Link href="sakal-family-office" className={`${isActive("/sakal-family-office") ? " sub-active-tab" : ""}`}>Sakal Family Office</Link>
                           </li>
                           <li>
-                            <Link href="Training & Development" >Training & Development</Link>
+                            <Link href="more-training-dev" className={`${isActive("/more-training-dev") ? " sub-active-tab" : ""}`} >Training & Development</Link>
                           </li>
                           {/* <li>
                             <Link href="faq">FAQ</Link>

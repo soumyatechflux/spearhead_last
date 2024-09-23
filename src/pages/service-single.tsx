@@ -14,6 +14,7 @@ const ServiceDetails = () => {
     <Layout header={2}video={false}>
       <ServiceDetailsBanner />
       <ServiceMain />
+      <CtaTwo />
       <FooterTry/>
       {/* <ServiceDetailsMain /> */}
       {/* <UxProcess /> */}

@@ -6,6 +6,7 @@ import UxProcess from "@/components/containers/service-details/UxProcess";
 import Footer from "@/components/layout/footer/Footer";
 import Branding from "@/components/containers/project/ProjectBranding";
 import ProjectBranding from "@/components/containers/project/ProjectBranding";
+import CtaTwo from "@/components/containers/service-details/CtaTwo";
 
 const ProjectDetails = () => {
   return (
@@ -17,6 +18,7 @@ const ProjectDetails = () => {
         parentLink="our-projects"
       />
       <ProjectBranding/>
+      <CtaTwo/>
       {/* <ProjectDetailsMain /> */}
       <Footer />
       {/* <UxProcess /> */}

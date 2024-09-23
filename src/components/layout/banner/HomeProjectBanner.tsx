@@ -32,9 +32,9 @@ const HomeProjectBanner = () => {
           </div>
           <div className="col-12 col-lg-7 col-xl-5">
           <div className="text-center text-lg-start">
-                <p className="primary-text">
+                {/* <p className="primary-text">
                 Welcome to Spearhead Creativity's PR Case Studies page! Here, we highlight our innovative approach and successful projects that captivate audiences and drive results. Explore our exemplary case studies to see our strategic PR expertise in action. For more insights or to collaborate with us, please get in touch. We look forward to bringing your story to life!
-                </p>
+                </p> */}
               </div>
           </div>
         </div>

@@ -32,9 +32,9 @@ const ServiceCoreCapabilitiesBanner = () => {
           </div>
           <div className="col-12 col-lg-7 col-xl-5">
           <div className="text-center text-lg-start">
-                <p className="primary-text">
+                {/* <p className="primary-text">
                 Our core expertise lies in forging connections between brands and audiences through effective, strategically-robust communications.
-                </p>
+                </p> */}
               </div>
           </div>
         </div>

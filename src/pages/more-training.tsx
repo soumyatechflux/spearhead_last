@@ -7,12 +7,14 @@ import MoreAdvisoryServiceBanner from "@/components/layout/banner/MoreAdvisorySe
 
 import Training from "@/components/containers/Training";
 import FooterTry from "@/components/layout/footer/FooterTry";
+import CtaTwo from "@/components/containers/service-details/CtaTwo";
 
 const MoreAdvisaory = () => {
   return (
     <Layout header={2} video={0}>
       <MoreAdvisoryServiceBanner/>
       <Training/>
+      <CtaTwo/>
       <FooterTry/>
     </Layout>
     

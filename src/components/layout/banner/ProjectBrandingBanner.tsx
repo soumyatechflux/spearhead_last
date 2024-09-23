@@ -20,9 +20,9 @@ const ProjectBrandingBanner = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="breadcrumb-item">
-                    <Link href="service-single">Services</Link>
-                  </li>
+                  {/* <li className="breadcrumb-item">
+                    <Link href="service-single">Projects</Link>
+                  </li> */}
                   <li className="breadcrumb-item active" aria-current="page">
                   Branding
                   </li>
@@ -32,9 +32,9 @@ const ProjectBrandingBanner = () => {
           </div>
           <div className="col-12 col-lg-7 col-xl-5">
           <div className="text-center text-lg-start">
-                <p className="primary-text">
+                {/* <p className="primary-text">
                 Our core expertise lies in forging connections between brands and audiences through effective, strategically-robust communications.
-                </p>
+                </p> */}
               </div>
           </div>
         </div>

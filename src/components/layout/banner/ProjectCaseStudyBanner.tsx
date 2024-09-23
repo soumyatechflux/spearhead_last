@@ -21,7 +21,7 @@ const ProjectCaseStudyBanner = () => {
                     </Link>
                   </li>
                   <li className="breadcrumb-item">
-                    <Link href="service-single">Branding</Link>
+                    <Link href="project-branding">Branding</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                   Case Study

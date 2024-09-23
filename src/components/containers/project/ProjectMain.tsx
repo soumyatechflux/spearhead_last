@@ -8,8 +8,9 @@ import hrfour from "public/images/projects/hr-four.png";
 import hrfive from "public/images/projects/hr-five.png";
 import hrsix from "public/images/projects/hr-six.png";
 import branding from "public/images/projects/branding.jpeg";
-
-
+import pr from "public/images/projects/pr.png";
+import social_media from "public/images/projects/social-media.webp";
+import marketing from "public/images/projects/marketing.webp";
 
 
 const ProjectMain: React.FC = () => {
@@ -45,7 +46,7 @@ const ProjectMain: React.FC = () => {
     },
     image: {
       width: '100%',
-      height: 'auto',
+      height: '200px',
     },
     content: {
       padding: '2rem',
@@ -74,18 +75,18 @@ const ProjectMain: React.FC = () => {
               </div>
           </div>
         </Link>
-        <Link href="project-single">
+        <Link href="project-PR">
           <div style={styles.item}>
-              <Image src={hrone} alt="Brand Development" style={styles.image} />
+              <Image src={pr} alt="Brand Development" style={styles.image} />
               <div className="text-center"  style={styles.content}>
                 <h2  style={styles.title}>PR</h2>
                 
               </div>
           </div>
         </Link>
-        <Link href="project-single">
+        <Link href="project-social-media">
           <div style={styles.item}>
-              <Image src={hrtwo} alt="Social Media" style={styles.image} />
+              <Image src={social_media} alt="Social Media" style={styles.image} />
               <div className="text-center"  style={styles.content}>
                 <h2 style={styles.title}>Social Media</h2>
               
@@ -93,9 +94,9 @@ const ProjectMain: React.FC = () => {
             </div>
         </Link>
         
-        <Link href="project-single">
+        <Link href="project-marketing">
         <div style={styles.item}>
-            <Image src={hrthree} alt="Marketing" style={styles.image} />
+            <Image src={marketing} alt="Marketing" style={styles.image} />
             <div className="text-center"  style={styles.content}>
               <h2 style={styles.title}>Marketing</h2>
             </div>

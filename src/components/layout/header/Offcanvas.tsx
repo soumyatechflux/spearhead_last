@@ -135,17 +135,17 @@ const Offcanvas = ({ openNav, setOpenNav }: HeaderProps) => {
                             <Link href="/project-branding" >Branding</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" >PR</Link>
+                            <Link href="/project-pr" >PR</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" >Social Media</Link>
+                            <Link href="/project-social-media" >Social Media</Link>
                           </li>
                           <li>
-                            <Link href="our-projects" >Marketing</Link>
+                            <Link href="/project-marketing" >Marketing</Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <Link href="our-projects" >Samples of   Work</Link>
-                          </li>
+                          </li> */}
                   </ul>
                 </li>
                 <li className="navbar__item navbar__item--has-children nav-fade">
@@ -169,7 +169,7 @@ const Offcanvas = ({ openNav, setOpenNav }: HeaderProps) => {
                       <Link href="/sakal-family-office">Sakal Family Office</Link>
                     </li>
                     <li>
-                      <Link href="/Training & Development">Training & Development</Link>
+                      <Link href="/more-training-dev">Training & Development</Link>
                     </li>
                     {/* <li className="navbar__item navbar__item--has-children">
                       <button
