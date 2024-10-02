@@ -10,33 +10,33 @@ import "swiper/swiper-bundle.css";
 // import five from "public/images/sponsor/four-dark.png";
 // import six from "public/images/sponsor/six-dark.png";
 
-import one from "../../../../public/images/logo images/ABCD.png";
+// import one from "../../../../public/images/logo images/ABCD.png";
 
-import two from "./../../../../public/images/logo images/Abudhabi.png";
-import three from "./../../../../public/images/logo images/New Folder/Accor.png";
-import four from "./../../../../public/images/logo images/New Folder/American express.png";
-import five from "./../../../../public/images/logo images/New Folder/Barbara rizzi.png";
-import six from "./../../../../public/images/logo images/New Folder/Bird.png";
-import seven from "./../../../../public/images/logo images/New Folder/carrefour.png";
-import eight from "./../../../../public/images/logo images/New Folder/DC.png";
-import nine from "./../../../../public/images/logo images/New Folder/Dubai financial center.png";
-import ten from "./../../../../public/images/logo images/New Folder/Emirates.png";
-import eleven from "./../../../../public/images/logo images/New Folder/Expo2020.png";
-import twelve from "./../../../../public/images/logo images/New Folder/Food crowd.png";
-import thirteen from "./../../../../public/images/logo images/New Folder/Frame 1-1.png";
-import fourteen from "./../../../../public/images/logo images/New Folder/Frame 1-2.png";
-import fifteen from "./../../../../public/images/logo images/New Folder/Frame 1-3.png";
-import sixteen from "./../../../../public/images/logo images/New Folder/Frame 1.png";
-import seventeen from "./../../../../public/images/logo images/New Folder/Habib bank.png";
-import eighteen from "./../../../../public/images/logo images/New Folder/Kingdom.png";
-import nineteen from "./../../../../public/images/logo images/New Folder/Kwantu.png";
-import twenty5 from "./../../../../public/images/logo images/New Folder/Public investment fund.png";
-import twenty6 from "./../../../../public/images/logo images/New Folder/Rixos.png";
-import twenty7 from "./../../../../public/images/logo images/New Folder/Rolls royce.png";
-import twenty8 from "./../../../../public/images/logo images/New Folder/Sharjah media city.png";
-import twenty9 from "./../../../../public/images/logo images/New Folder/Viceroy.png";
-import thirty from "./../../../../public/images/logo images/New Folder/Sharjah.png";
-import thirty1 from "./../../../../public/images/logo images/New Folder/Zoya.png";
+// import two from "./../../../../public/images/logo images/Abudhabi.png";
+// import three from "./../../../../public/images/logo images/New Folder/Accor.png";
+// import four from "./../../../../public/images/logo images/New Folder/American express.png";
+// import five from "./../../../../public/images/logo images/New Folder/Barbara rizzi.png";
+// import six from "./../../../../public/images/logo images/New Folder/Bird.png";
+// import seven from "./../../../../public/images/logo images/New Folder/carrefour.png";
+// import eight from "./../../../../public/images/logo images/New Folder/DC.png";
+// import nine from "./../../../../public/images/logo images/New Folder/Dubai financial center.png";
+// import ten from "./../../../../public/images/logo images/New Folder/Emirates.png";
+// import eleven from "./../../../../public/images/logo images/New Folder/Expo2020.png";
+// import twelve from "./../../../../public/images/logo images/New Folder/Food crowd.png";
+// import thirteen from "./../../../../public/images/logo images/New Folder/Frame 1-1.png";
+// import fourteen from "./../../../../public/images/logo images/New Folder/Frame 1-2.png";
+// import fifteen from "./../../../../public/images/logo images/New Folder/Frame 1-3.png";
+// import sixteen from "./../../../../public/images/logo images/New Folder/Frame 1.png";
+// import seventeen from "./../../../../public/images/logo images/New Folder/Habib bank.png";
+// import eighteen from "./../../../../public/images/logo images/New Folder/Kingdom.png";
+// import nineteen from "./../../../../public/images/logo images/New Folder/Kwantu.png";
+// import twenty5 from "./../../../../public/images/logo images/New Folder/Public investment fund.png";
+// import twenty6 from "./../../../../public/images/logo images/New Folder/Rixos.png";
+// import twenty7 from "./../../../../public/images/logo images/New Folder/Rolls royce.png";
+// import twenty8 from "./../../../../public/images/logo images/New Folder/Sharjah media city.png";
+// import twenty9 from "./../../../../public/images/logo images/New Folder/Viceroy.png";
+// import thirty from "./../../../../public/images/logo images/New Folder/Sharjah.png";
+// import thirty1 from "./../../../../public/images/logo images/New Folder/Zoya.png";
 
 
 
@@ -44,7 +44,42 @@ import thirty1 from "./../../../../public/images/logo images/New Folder/Zoya.png
 
 
 const HomeSponsor = () => {
+
+
+
+
+
+  const one = require("../../../../public/images/logo images/ABCD.png");
+const two = require("../../../../public/images/logo images/Abudhabi.png");
+const three = require("../../../../public/images/logo images/New Folder/Accor.png");
+const four = require("../../../../public/images/logo images/New Folder/American express.png");
+const five = require("../../../../public/images/logo images/New Folder/Barbara rizzi.png");
+const six = require("../../../../public/images/logo images/New Folder/Bird.png");
+const seven = require("../../../../public/images/logo images/New Folder/carrefour.png");
+const eight = require("../../../../public/images/logo images/New Folder/DC.png");
+const nine = require("../../../../public/images/logo images/New Folder/Dubai financial center.png");
+const ten = require("../../../../public/images/logo images/New Folder/Emirates.png");
+const eleven = require("../../../../public/images/logo images/New Folder/Expo2020.png");
+const twelve = require("../../../../public/images/logo images/New Folder/Food crowd.png");
+const thirteen = require("../../../../public/images/logo images/New Folder/Frame 1-1.png");
+const fourteen = require("../../../../public/images/logo images/New Folder/Frame 1-2.png");
+const fifteen = require("../../../../public/images/logo images/New Folder/Frame 1-3.png");
+const sixteen = require("../../../../public/images/logo images/New Folder/Frame 1.png");
+const seventeen = require("../../../../public/images/logo images/New Folder/Habib bank.png");
+const eighteen = require("../../../../public/images/logo images/New Folder/Kingdom.png");
+const nineteen = require("../../../../public/images/logo images/New Folder/Kwantu.png");
+const twenty5 = require("../../../../public/images/logo images/New Folder/Public investment fund.png");
+const twenty6 = require("../../../../public/images/logo images/New Folder/Rixos.png");
+const twenty7 = require("../../../../public/images/logo images/New Folder/Rolls royce.png");
+const twenty8 = require("../../../../public/images/logo images/New Folder/Sharjah media city.png");
+const twenty9 = require("../../../../public/images/logo images/New Folder/Viceroy.png");
+const thirty = require("../../../../public/images/logo images/New Folder/Sharjah.png");
+const thirty1 = require("../../../../public/images/logo images/New Folder/Zoya.png");
+
+
+
   return (
+    <>
     <div className="sponsor section pb-0">
       <div className="container-fluid">
         <div className="row justify-content-center">
@@ -255,6 +290,7 @@ const HomeSponsor = () => {
         <div className="line"></div>
       </div>
     </div>
+    </>
   );
 };
 
