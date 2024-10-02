@@ -1,16 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import hrone from "public/images/projects/hr-one.png";
-import hrtwo from "public/images/projects/hr-two.png";
-import hrthree from "public/images/projects/hr-three.png";
-import hrfour from "public/images/projects/hr-four.png";
-import hrfive from "public/images/projects/hr-five.png";
 import arrow1 from "public/images/projects/Group (6).png";
-import arrow2 from "public/images/projects/Group_.png";
 import arrow3 from "public/images/projects/arrow_bottom.png";
-import branding from "public/images/projects/branding.jpeg";
-
+import overview from "public/images/CaseStudy/statistics.png";
+import challanges from "public/images/CaseStudy/challenge.png";
+import approach from "public/images/CaseStudy/approach.png";
+import outcome from "public/images/CaseStudy/results.png";
+import conclusion from "public/images/CaseStudy/conclusion.png";
+import dia from "public/images/CaseStudy/Diamond Lounge.jpg";
 
 
 const ProjectBrandingCaseStudy3: React.FC = () => {
@@ -75,10 +72,12 @@ const ProjectBrandingCaseStudy3: React.FC = () => {
              <div className="col-12 col-lg-12 my-3 px-md-5">
               
               <div className="case-study-container">
+              <Image src={dia} style={{height:"300px", width:""}} alt="Image" className="unset fade-left" />
                   <h3 className="heading_title">Case Study: Diamond Lounge Brandmark and Colour Palette Implementation
                   </h3>
                   
                   <section className="case-study-overview">
+                  <Image src={overview} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4 ">Overview</h4>
                     <p>
                     Development of the Diamond Lounge brandmark and colour palette.
@@ -94,6 +93,7 @@ const ProjectBrandingCaseStudy3: React.FC = () => {
                   <Image src={arrow1} alt="Brand Development" className="arrow-img-long" />
                   
                   <section className="case-study-challenge">
+                  <Image src={challanges} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Challenge</h4>
                     {/* <ul> */}
                       <p>Need for a clear and consistent brandmark usage across various platforms.</p>
@@ -105,6 +105,7 @@ const ProjectBrandingCaseStudy3: React.FC = () => {
                   <Image src={arrow3} alt="Brand Development" className="arrow3-img" />
                   
                   <section className="case-study-approach">
+                  <Image src={approach} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Our Approach</h4>
                     <h5 className="heading6"><strong>Designing the Brandmark:</strong></h5>
                     <p>
@@ -162,6 +163,7 @@ const ProjectBrandingCaseStudy3: React.FC = () => {
                   
 
                   <section className="case-study-outcome">
+                  <Image src={outcome} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Outcome</h4>
                     {/* <ul> */}
                       <p>Consistent application of the brandmark across all platforms, reinforcing brand recognition.</p>
@@ -173,6 +175,7 @@ const ProjectBrandingCaseStudy3: React.FC = () => {
                   <Image src={arrow3} alt="Brand Development" className="arrow3-img" />
                   
                   <section className="case-study-conclusion">
+                  <Image src={conclusion} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Conclusion</h4>
                     <p>
                     The successful implementation of the Diamond Lounge brandmark and colour palette has resulted in a strong, consistent visual identity. 

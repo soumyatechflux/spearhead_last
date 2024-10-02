@@ -18,6 +18,7 @@ const FooterTry = () => {
       <div className="container">   
 
         <div className="row gaper">
+          {/* <div className="col-12 col-lg-9 col-xl-9"> */}
           <div className="col-12 col-lg-4 col-xl-4">
             <div className="footer__single">
               <Link href="/" className="logo">
@@ -39,6 +40,8 @@ const FooterTry = () => {
                   <i className="fa-sharp fa-solid fa-envelope"></i>
                   ceo@spearheadcreativity.com 
                 </Link>
+
+                
               </div>
               {/* <div className="footer__cta text-start">
                 <Link href="contact-us" className="btn btn--secondary-2">
@@ -59,7 +62,7 @@ const FooterTry = () => {
           </div>
 
 
-          <div className="col-12 col-lg-2 col-xl-2">
+          <div className="col-12 col-lg-2 col-xl-2 d-flex justify-content-center">
             <div className="footer__single">
               <div className="footer__single-intro">
                 <h5>discover</h5>
@@ -81,22 +84,26 @@ const FooterTry = () => {
                 </ul>
               </div>
             </div>
+          {/* </div> */}
           </div>
+        
          
          
-          
+          {/* <div className="col-12 col-lg-3 col-xl-3"> */}
           <div className="col-12 col-lg-3 col-xl-4">
-            <div className="footer__single">
-              <div className="footer__single-intro">
-                <h5>Location</h5>
-              </div>
-            
-              <div className="footer__single-content">
-              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.4147951386244!2d73.79744627503601!3d19.99109842260863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeafc75e786dd%3A0x8f4fab30e7ea460c!2sTechflux%20Solutions!5e0!3m2!1sen!2sin!4v1724072879175!5m2!1sen!2sin" width="600" height="450" loading="lazy"></iframe> */}
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.71303633464143!2d55.30011378154933!3d25.15567823868661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f688c5516ea0f%3A0x44800f32689f57e2!2sThe%20Meydan%20Hotel!5e0!3m2!1sen!2sin!4v1724562911553!5m2!1sen!2sin" width="600" height="200"  loading="lazy" ></iframe>
+              <div className="footer__single">
+                <div className="footer__single-intro">
+                  <h5>Location</h5>
+                </div>
+              
+                <div className="footer__single-content">
+                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.4147951386244!2d73.79744627503601!3d19.99109842260863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeafc75e786dd%3A0x8f4fab30e7ea460c!2sTechflux%20Solutions!5e0!3m2!1sen!2sin!4v1724072879175!5m2!1sen!2sin" width="600" height="450" loading="lazy"></iframe> */}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.71303633464143!2d55.30011378154933!3d25.15567823868661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f688c5516ea0f%3A0x44800f32689f57e2!2sThe%20Meydan%20Hotel!5e0!3m2!1sen!2sin!4v1724562911553!5m2!1sen!2sin" width="600" height="200"  loading="lazy" ></iframe>
+                </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
+           
         </div>
 
         <div className="col-12 col-lg-3 col-xl-4">

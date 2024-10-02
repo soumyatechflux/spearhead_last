@@ -14,7 +14,7 @@ const SakalFamilySection = () => {
         <div className="row gaper align-items-center">
           <div className="col-12 ">
             <div className="award__thumb dir-rtl mt-5">
-              <Image src={sakal} style={{height:'300px',width:'500px'}} alt="Image" className="unset fade-left" />
+              <Image src={sakal} style={{}} alt="Image" className="unset fade-left" />
             </div>
           </div>
           <div className="col-12  offset-xxl-1">

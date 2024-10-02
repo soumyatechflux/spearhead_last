@@ -36,6 +36,8 @@ const CtaTwo = () => {
         return "Sakal Family Office";
       case '/more-training-dev':
         return "Training and Development";
+      case '/client-feedback':
+        return "Testimonials";
       case '/contact':
         return "Contact Us";
       default:
@@ -44,10 +46,10 @@ const CtaTwo = () => {
   };
 
   return (
-    <section className="cta-two section">
+    <section className="cta-two my-5">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-12 col-xxl-11">
+          <div className="col-12 col-xxl-11 ">
             <div
               className="cta-two-wrapper bg-img"
               style={{ backgroundImage: "url('/images/cta-two-bg.png')" }}

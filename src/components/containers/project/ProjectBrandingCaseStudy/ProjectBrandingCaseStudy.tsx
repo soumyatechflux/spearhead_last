@@ -1,15 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import hrone from "public/images/projects/hr-one.png";
-import hrtwo from "public/images/projects/hr-two.png";
-import hrthree from "public/images/projects/hr-three.png";
-import hrfour from "public/images/projects/hr-four.png";
-import hrfive from "public/images/projects/hr-five.png";
-import arrow1 from "public/images/projects/Group.png";
-import arrow2 from "public/images/projects/Group_.png";
 import arrow3 from "public/images/projects/arrow_bottom.png";
-import branding from "public/images/projects/branding.jpeg";
+import overview from "public/images/CaseStudy/statistics.png";
+import challanges from "public/images/CaseStudy/challenge.png";
+import approach from "public/images/CaseStudy/approach.png";
+import outcome from "public/images/CaseStudy/results.png";
+import conclusion from "public/images/CaseStudy/conclusion.png";
+import logo from "public/images/CaseStudy/nisma.png";
+
+import arrow1 from "public/images/projects/Group.png";
+// import arrow3 from "public/images/projects/arrow_bottom.png";
+
+// import overview from "/images/CaseStudy/statistics.png";
+// import challanges from "/images/CaseStudy/challenge.png";
+// import approach from "/images/CaseStudy/approach.png";
+// import outcome from "/images/CaseStudy/results.png";
+// import conclusion from "/images/CaseStudy/conclusion.png";
 
 
 
@@ -75,10 +82,11 @@ const ProjectBrandingCaseStudy: React.FC = () => {
             <div className="col-12 col-lg-12 my-3 px-md-5">
               
               <div className="case-study-container">
+              <Image src={logo} style={{width:"500px",height:"100px"}} alt="Image" className="unset fade-left" />
                   <h3 className="heading_title">Nesma Injazat: A Case Study in Brand Excellence</h3>
                   
                   <section className="case-study-overview">
-                    <h4 className="heading4 ">Overview</h4>
+                  <Image src={overview} style={{}} alt="Image" className="unset fade-left" /><h4 className="heading4 ">Overview</h4>
                     <p>
                       Spearhead Creativity was approached by Nesma Injazat, a leader in the construction and engineering industry, with a vision to redefine their brand identity and solidify their market position. The goal was to create a brand that not only resonated with their target audience but also distinguished them in an increasingly competitive landscape.
                     </p>
@@ -87,6 +95,7 @@ const ProjectBrandingCaseStudy: React.FC = () => {
                   <Image src={arrow1} alt="Brand Development" className="arrow-img" />
                   
                   <section className="case-study-challenge">
+                  <Image src={challanges} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Challenge</h4>
                     <ul>
                       <li><strong>Lack of a distinct brand identity:</strong> Despite their expertise and success in their industry, the company lacked a strong visual and strategic identity that could stand out to clients and partners.</li>
@@ -97,6 +106,7 @@ const ProjectBrandingCaseStudy: React.FC = () => {
                   <Image src={arrow3} alt="Brand Development" className="arrow3-img" />
                   
                   <section className="case-study-approach">
+                  <Image src={approach} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Our Approach</h4>
                     <h6 className="heading6"><strong>Brand Development and Research</strong></h6>
                     <p>
@@ -115,6 +125,7 @@ const ProjectBrandingCaseStudy: React.FC = () => {
                   
 
                   <section className="case-study-outcome">
+                  <Image src={outcome} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Outcome</h4>
                     <ul>
                       <li><strong>Brand Identity:</strong> The new brand identity was rolled out with a cohesive visual and strategic narrative. Nesma Injazat’s new logo is now prominently displayed across their materials, creating a lasting impact on clients and partners.</li>
@@ -124,6 +135,7 @@ const ProjectBrandingCaseStudy: React.FC = () => {
                   <Image src={arrow3} alt="Brand Development" className="arrow3-img" />
                   
                   <section className="case-study-conclusion">
+                  <Image src={conclusion} style={{}} alt="Image" className="unset fade-left" />
                     <h4 className="heading4">Conclusion</h4>
                     <p>This project exemplifies Spearhead Creativity’s commitment to delivering excellence in brand development. By partnering with Nesma Injazat, we successfully created a brand and digital platform that will support their growth and reinforce their leadership position in the industry.</p>
                     <p>For more details, visit the <Link href="https://nesma-injazat.com" target="_blank" rel="noopener noreferrer"><span style={{color:"#ff7425"}}> Nesma Injazat Website</span></Link>.</p>
