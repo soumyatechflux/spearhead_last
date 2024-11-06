@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,123 +22,483 @@ import sthumbfiveteen from "public/images/client/Carmen Aston.jpg";
 import sthumbsixteen from "public/images/client/Ella.jpg";
 import sthumbseventeen from "public/images/client/Phil.jpg";
 import sthumbeighteen from "public/images/client/MB Ortiguerra.jpg";
+import axios from "axios";
+
+interface ArticleData {
+  id: string;
+  title: string;
+  alias: string;
+  introtext_: string;
+  fulltext_: string;
+  category_id: string;
+  created_at: string;
+  created_by: string;
+  images: {
+    intro_image_link: string;
+    intro_image_alt_text: string;
+    full_image_link: string;
+    full_image_alt_text: string;
+  };
+  hits: string;
+  ordering: string;
+  published: string;
+  star: null | string;
+  og_title: string;
+  og_description: string;
+  og_image: string;
+  meta_title: string;
+  meta_keyword: string;
+  meta_description: string;
+  parent_language_id: string;
+  language_id: string;
+}
+
+interface ApiResponse {
+  response: boolean;
+  success_msg: string;
+  error_msg: string;
+  data: {
+    article_data: ArticleData;
+    field_data: Array<{ data: string }>;
+  }[];
+}
 
 const HomeTestimonial = () => {
   const [nextSlideIndex, setNextSlideIndex] = useState<number>(1);
+  const [article1, setArticle1] = useState<ArticleData | null>(null);
+  const [article2, setArticle2] = useState<ArticleData | null>(null);
+  const [article3, setArticle3] = useState<ArticleData | null>(null);
+  const [article4, setArticle4] = useState<ArticleData | null>(null);
+  const [article5, setArticle5] = useState<ArticleData | null>(null);
+  const [article6, setArticle6] = useState<ArticleData | null>(null);
+  const [article7, setArticle7] = useState<ArticleData | null>(null);
+  const [article8, setArticle8] = useState<ArticleData | null>(null);
+  const [article9, setArticle9] = useState<ArticleData | null>(null);
+  const [article10, setArticle10] = useState<ArticleData | null>(null);
+  const [article11, setArticle11] = useState<ArticleData | null>(null);
+  const [article12, setArticle12] = useState<ArticleData | null>(null);
+  const [article13, setArticle13] = useState<ArticleData | null>(null);
+  const [article14, setArticle14] = useState<ArticleData | null>(null);
+  const [article15, setArticle15] = useState<ArticleData | null>(null);
+  const [article16, setArticle16] = useState<ArticleData | null>(null);
+  const [article17, setArticle17] = useState<ArticleData | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSlideChange = (swiper: any) => {
     const nextIndex = (swiper.realIndex + 1) % swiper.slides.length;
     setNextSlideIndex(nextIndex);
   };
 
+  useEffect(() => {
+    const fetchArticle1 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=67"
+        );
+
+        if (response.data.response) {
+          setArticle1(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 1.");
+        console.error(err);
+      }
+    };
+
+    const fetchArticle2 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=58"
+        );
+
+        if (response.data.response) {
+          setArticle2(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 2.");
+        console.error(err);
+      }
+    };
+    const fetchArticle3 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=63"
+        );
+
+        if (response.data.response) {
+          setArticle3(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 3.");
+        console.error(err);
+      }
+    };
+    const fetchArticle4 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=52" // Replace with the actual ID for the fourth article
+        );
+
+        if (response.data.response) {
+          setArticle4(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 4.");
+        console.error(err);
+      }
+    };
+
+    const fetchArticle5 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=53" // Replace with the actual ID for the fifth article
+        );
+
+        if (response.data.response) {
+          setArticle5(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 5.");
+        console.error(err);
+      }
+    };
+    const fetchArticle6 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=61"
+        );
+
+        if (response.data.response) {
+          setArticle6(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 6.");
+        console.error(err);
+      }
+    };
+    const fetchArticle7 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=59"
+        );
+
+        if (response.data.response) {
+          setArticle7(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 7.");
+        console.error(err);
+      }
+    };
+    const fetchArticle8 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=66"
+        );
+
+        if (response.data.response) {
+          setArticle8(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 8.");
+        console.error(err);
+      }
+    };
+    const fetchArticle9 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=56"
+        );
+
+        if (response.data.response) {
+          setArticle9(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 9.");
+        console.error(err);
+      }
+    };
+    const fetchArticle10 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=64"
+        );
+
+        if (response.data.response) {
+          setArticle10(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 10.");
+        console.error(err);
+      }
+    };
+    const fetchArticle11 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=68"
+        );
+
+        if (response.data.response) {
+          setArticle11(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 11.");
+        console.error(err);
+      }
+    };
+    const fetchArticle12 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=60"
+        );
+
+        if (response.data.response) {
+          setArticle12(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 12.");
+        console.error(err);
+      }
+    };
+    const fetchArticle13 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=54"
+        );
+
+        if (response.data.response) {
+          setArticle13(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 13.");
+        console.error(err);
+      }
+    };
+    const fetchArticle14 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=57"
+        );
+
+        if (response.data.response) {
+          setArticle14(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 14.");
+        console.error(err);
+      }
+    };
+    const fetchArticle15 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=62"
+        );
+
+        if (response.data.response) {
+          setArticle15(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 15.");
+        console.error(err);
+      }
+    };
+    const fetchArticle16 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=65"
+        );
+
+        if (response.data.response) {
+          setArticle16(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 16.");
+        console.error(err);
+      }
+    };
+    const fetchArticle17 = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=55"
+        );
+
+        if (response.data.response) {
+          setArticle17(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg);
+        }
+      } catch (err) {
+        setError("Error fetching article data 17.");
+        console.error(err);
+      }
+    };
+   
+
+    fetchArticle1();
+    fetchArticle2();
+    fetchArticle3();
+    fetchArticle4();
+    fetchArticle5();
+    fetchArticle6();
+    fetchArticle7();
+    fetchArticle8();
+    fetchArticle9();
+    fetchArticle10();
+    fetchArticle11();
+    fetchArticle12();
+    fetchArticle13();
+    fetchArticle14();
+    fetchArticle15();
+    fetchArticle16();
+    fetchArticle17();
+  }, []);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  // Wait until both articles are fetched
+  if (!article1 && !article2 && !article3 && !article6) {
+    return <div>Loading...</div>;
+  }
   const testimonials = [
     {
-      // thumb: sthumb,
-      summary: "Paul Williams is an outstanding brand strategist and media specialist. Our collaboration on various hotel projects showcased his exceptional dedication, creativity, and strategic insight. His professionalism and commitment to excellence are commendable traits that greatly contributed to our success. I have every confidence in Paul's abilities and wholeheartedly endorse him for any future endeavors.",
-      name: "Khaled Amer",
-      title: "Vice President",
+      thumb: sthumb,
+      summary: article1?.fulltext_,
+      name: article1?.title,
+      title: article1?.introtext_,
     },
     {
       thumb: sthumbtwo,
-      summary: "I've had the pleasure of collaborating with Paul and his company on a few projects, and I can attest to his exceptional work ethics and unwavering commitment to delivering top-quality services. His strategic approach to catering to his customers' vision and tailoring the offers to their requirements sets a benchmark for professionalism and high standards in the industry. Paul's consistency and transparent communication showcases a genuine passion for achieving excellence. I highly recommend Spearhead Creativity to any organization seeking a dedicated, visionary agency that ensures unwavering quality and delivering outstanding results.",
-      name: "Soumaia Amane",
-      title: "Sr. Industrial Engineer",
+      summary: article2?.fulltext_,
+      name: article2?.title,
+      title: article2?.introtext_,
     },
     {
       thumb: sthumbthree,
-      summary: "Paul Williams has phenomenal local Media Management and PR experience, is very well connected and is one of the best networkers that I have seen. His company, Spearhead Creativity, manages my company's Public Relations and marketing. Paul and his team were able to secure excellent coverage with leading publications to develop my personal branding, as well as our company branding for Linen Obsession. This has really helped to increase recognition and awareness for our new business initiatives, and to enhance sales. Thank you to Paul and his team.",
-      name: "Pamela Lilburne Opie",
-      title: "CEO of Linen Obsession Textile Trading LLC",
+      summary: article3?.fulltext_,
+      name: article3?.title,
+      title: article3?.introtext_,
     },
     {
       thumb: sthumbfour,
-      summary: "I worked with Paul on creating a commercial Ad for our company. Paul and his team went above our expectations and delivered an exceptional commercial Ad that was displayed in leading cinema screens as well as outdoor billboards. Paul is a professional candidate and working with him was a real pleasure. He has a strategic thinking mind with a positive attitude topped with a fun and friendly personality. I highly recommend others to work with him and his team and I look forward to be working again with him on new projects.",
-      name: "Soula Baroudi",
-      title: "Strategic Marketing Consultant",
+      summary: article4?.fulltext_,
+      name: article4?.title,
+      title: article4?.introtext_,
     },
     {
       thumb: sthumbfive,
-      summary: "It has been a true pleasure working with Spearhead. They've addressed our branding and creative content creation needs for our social media platforms and have been accommodating to our startup.Paul is flexible, easy to work with, and prompt with his responses. Continue the great work!",
-      name: "Latifa Bin Haider",
-      title: "Entrepreneur, Founder of Baytukum, Aurora Technologies",
+      summary: article5?.fulltext_,
+      name: article5?.title,
+      title: article5?.introtext_,
     },
     {
-      thumb: '',
-      summary: "It’s my absolute pleasure to write about Mr. paul williams. Paul is one of my friend and great artist, although he has a creative mind that gives an ecstatic feeling to others. Paul is an optimistic and asset of any organization. Paul has it's own vision and unique method to solving problems across strategy, branding and communication.",
-      name: "Er.Salma mol K",
-      title: "Quantity Surveyor",
+      thumb: "",
+      summary: article6?.fulltext_,
+      name: article6?.title,
+      title: article6?.introtext_,
     },
     {
-      thumb: '',
-      summary: "There is no better colleague than Paul. He is one of the most dedicated professionals I’ve worked with and is willing to put that extra help whenever you need it. He always helped his team come up with more efficient solutions on different projects. His contribution is valuable to any side, and I highly recommend Paul as a highly reputable and trustworthy individual and would love to work with him one day again.",
-      name: "Alie Jaber",
-      title: "CEO",
+      thumb: "",
+      summary: article7?.fulltext_,
+      name: article7?.title,
+      title: article7?.introtext_,
     },
     {
       thumb: sthumbeight,
-      summary: "Paul is an asset to any organization! Paul constantly amazed me with his industry insight and unique methods to solving problems across strategy, branding & communications. He consistently demonstrated a solid work ethic as well as a commitment to success. Paul is an organized and customer-service oriented perfectionist, and has no problem to work hard when necessary. He has an extremely positive attitude towards work, making him not only a reliable and forward-thinking director but also an inspiring team player.",
-      name: "Sonal Nanoo",
-      title: "",
+      // summary:
+      //   "Paul is an asset to any organization! Paul constantly amazed me with his industry insight and unique methods to solving problems across strategy, branding & communications. He consistently demonstrated a solid work ethic as well as a commitment to success. Paul is an organized and customer-service oriented perfectionist, and has no problem to work hard when necessary. He has an extremely positive attitude towards work, making him not only a reliable and forward-thinking director but also an inspiring team player.",
+      // name: "Sonal Nanoo",
+      // title: "",
+      summary: article8?.fulltext_,
+      name: article8?.title,
+      title: article8?.introtext_,
     },
     {
       thumb: sthumbnine,
-      summary: "Paul‘s positive attitude towards work helped encourage and support me and support any one he worked with, which made for a very enjoyable but productive work environment.I witnessed Paul‘s commitment to any project he Handel, and I recommend him without hesitation.”",
-      name: "Tamim Abazid",
-      title: "Creative Art Director ",
+      summary: article9?.fulltext_,
+      name: article9?.title,
+      title: article9?.introtext_,
     },
-    // {
-    //   thumb: sthumbten,
-    //   summary: "Paul is a superb networker, planner and strategist. He's a problem solver and all round over achiever.",
-    //   name: "Lady Alexandra Williams",
-    //   title: "CEO at A Communications",
-    // },
     {
       thumb: sthumbeleven,
-      summary: "Paul hired me to work for him in 2008. I was new to Dubai and to the company and he was my direct line manager - Paul had the perfect balance of being a kind and considerate manager, who did not hesitate to assist me and guide me when needed, but he also pushed me and encouraged me to learn on the job via trial and error. He led by example, unlike some of my previous managers..Ie, he put in the hard graft and definately had the gift of the gab when it came to sales and closing deals. I'll always be thankful to Paul for fighting my corner during interviews and for giving me the chance he did to start my new chapter in the UAE.",
-      name: "Rhiannon Downie Hurst",
-      title: "Multi-Entrepreneur",
+      summary: article10?.fulltext_,
+      name: article10?.title,
+      title: article10?.introtext_,
     },
     {
       thumb: sthumbtwelve,
-      summary: "I have had the pleasure of working with Paul on more than a few key projects and found him to be detail-oriented, conscientious, and dedicated. Paul is a driver of symbiotic relationships that makes sure the growth of all involved. His commitment to adding a personal hands-on touch to everything he does ensures glowing results all around. Paul plays a pivotal role in the success of all those he works with.",
-      name: "Lance K Müller",
-      title: "Director & Core Founder - Castheads Media",
+      summary: article11?.fulltext_,
+      name: article11?.title,
+      title: article11?.introtext_,
     },
     {
       thumb: sthumbthirteen,
-      summary: "I worked with Paul when he was in media sales back when Dubai was seeing rapid growth, and then a drastic short term decline through the recession. Throughout it I have always enjoyed his infectious positivity, openness to challenge creative boundaries and - last not least - his ability to deliver. I admire his courage to go out and do it. Many people talk about the importance of diversity in any industry - he was ‘doing it’ by his mere presence long before the wider (Western) world woke up to it and has transformed himself into a UAE original in the process. Godspeed! ",
-      name: "Christian Fedorczuk",
-      title: "Global experience",
+      summary: article12?.fulltext_,
+      name: article12?.title,
+      title: article12?.introtext_,
     },
     {
       thumb: sthumbfourteen,
-      summary: "Paul is superb at networking and ensuring meaningful connections are made. I will often reach out to Paul to find out where to take clients, visit or stay in the UAE- his knowledge of the hospitality industry is second to none. When we are visiting Dubai, we will always try to meet Paul to say hello. It is like greeting a long lost friend and his smile lights up rooms. Above everything, I value honesty, integrity and warmth which Paul exudes.",
-      name: "Julia Knight MCCT",
-      title: "Experienced School Founder ",
+      summary: article13?.fulltext_,
+      name: article13?.title,
+      title: article13?.introtext_,
     },
     {
       thumb: sthumbfiveteen,
-      summary: "Paul is a dedicated team player and is committed to achieving and exceeding goals within his role.He is a skilful negotiator, a self starter and a tenacious worker - all the necessary qualities for success. His strong interpersonal skills enables him to work well within a team or with his clients.Talent, hard work and a great person!",
-      name: "Carmen Aston",
-      title: "Global Sales & Marketing Director",
+      summary: article14?.fulltext_,
+      name: article14?.title,
+      title: article14?.introtext_,
     },
     {
       thumb: sthumbsixteen,
-      summary: "Paul has the energy that could move mountains, and his love for the clients manifests in his dedication to always create value for every project he works on. Outside work, Paul is a friend who would throw opportunities your way whenever he can. ",
-      name: "Ella Vennice G.",
-      title: "",
+      summary: article15?.fulltext_,
+      name: article15?.title,
+      title: article15?.introtext_,
     },
     {
       thumb: sthumbseventeen,
-      summary: "A fearless, resourceful and relentless business development professional, Paul always hit his targets and his name was invariably at the top of the sales leaderboard. A natural born hustler with a passion for luxury brands, fashion and social media, Paul is commercially driven and has an innate perception of where and how to secure the most lucrative deals. Charming, hard-working and very ambitious, Paul brings experience, drive and dedication to the table.",
-      name: "Phil Smith",
-      title: "Middle East Media Representative",
+      summary: article16?.fulltext_,
+      name: article16?.title,
+      title: article16?.introtext_,
     },
     {
       thumb: sthumbeighteen,
-      summary: "Paul Williams is one of the few people who can think both conceptually and operationally. He handles both processes with ease. He has the ability to see through numbers and identify trends, visualize visions, and put all of this into a well-articulated and exceptionally solid plan. It is a pleasure to work with someone who has a clear purpose, is action-oriented, and avoids putting in half-hearted efforts. A man who commands the admiration and loyalty of those around him. Anyone who has worked with Paul will attest to this. Above all, he is an amazing human being who brings out the best in people. Simply put, he is a true leader, which is a highly sought-after and elusive commodity!",
-      name: "MB Ortiguerra",
-      title: "Cluster Marketing",
+      summary: article17?.fulltext_,
+      name: article17?.title,
+      title: article17?.introtext_,
     },
   ];
 
@@ -259,10 +619,10 @@ const HomeTestimonial = () => {
                 className="testimonial-s__slider"
               >
                 {testimonials.map((testimonial, index) => (
-        <SwiperSlide key={index}>
-          <div className="testimonial-s__slider-single">
-            <div className="row gaper align-items-center">
-              {/* <div className="col-12 col-lg-4 col-xxl-4">
+                  <SwiperSlide key={index}>
+                    <div className="testimonial-s__slider-single">
+                      <div className="row gaper align-items-center">
+                        {/* <div className="col-12 col-lg-4 col-xxl-4">
                 <div className="thumb">
                    <Image src={testimonial.thumb} alt="Image" /> 
                   <svg
@@ -280,24 +640,34 @@ const HomeTestimonial = () => {
                   </svg>
                 </div>
               </div> */}
-              <div className="col-12 ">
-                <div className="testimonial-s__content">
-                  <div className="quote">
-                    <i className="fa-solid fa-quote-right"></i>
-                  </div>
-                  <div className="content">
-                    <h5 className="summary">{testimonial.summary}</h5>
-                  </div>
-                  <div className="content-cta">
-                    <h5 style={{ fontWeight: 'bold' ,textAlign:'center',color:'#ff7425' }}>{testimonial.name}</h5>
-                    <p style={{ textAlign:'center' }}>{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
+                        <div className="col-12 ">
+                          <div className="testimonial-s__content">
+                            <div className="quote">
+                              <i className="fa-solid fa-quote-right"></i>
+                            </div>
+                            <div className="content">
+                              <h5 className="summary">{testimonial.summary}</h5>
+                            </div>
+                            <div className="content-cta">
+                              <h5
+                                style={{
+                                  fontWeight: "bold",
+                                  textAlign: "center",
+                                  color: "#ff7425",
+                                }}
+                              >
+                                {testimonial.name}
+                              </h5>
+                              <p style={{ textAlign: "center" }}>
+                                {testimonial.title}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>
@@ -342,3 +712,4 @@ const HomeTestimonial = () => {
 };
 
 export default HomeTestimonial;
+

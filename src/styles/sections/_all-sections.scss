@@ -2569,12 +2569,13 @@
 // 5.27 mission styles
 .mission-s {
   .mission-s__single {
-    height: 100%;
+    // height: 100%;
+    height: 89%;
     background-color: #131313;
   }
 
   .mission-s__single--alt {
-    padding: 80px 60px;
+    padding: 66px 60px;
     display: flex;
     align-items: flex-start;
     justify-content: center;

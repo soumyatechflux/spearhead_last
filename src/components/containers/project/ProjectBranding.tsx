@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import hrone from "public/images/projects/hr-one.png";
@@ -11,8 +11,42 @@ import branding from "public/images/projects/branding.jpeg";
 
 import glow_star from "public/images/glowing star.gif"; 
 import dotlarge from "public/images/agency/dot-large.png";
+import axios from "axios";
+
+// Define the structure for the article data
+interface Article {
+  id: string;
+  title: string;
+  alias: string;
+  introtext_: string;
+  fulltext_: string;
+  images: {
+    intro_image_link: string;
+    intro_image_alt_text: string;
+    full_image_link: string;
+    full_image_alt_text: string;
+  };
+  created_at: string;
+  created_by: string;
+  hits: string;
+  ordering: string;
+  published: string;
+}
+
+// Define the structure of the response data
+interface ApiResponse {
+  response: boolean;
+  success_msg: string;
+  error_msg: string;
+  data: {
+    article_data: Article;
+  }[];
+}
 
 const ProjectBranding: React.FC = () => {
+  const [article, setArticle] = useState<Article | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
   const styles = {
     container: {
       padding: '2rem',
@@ -60,102 +94,86 @@ const ProjectBranding: React.FC = () => {
       color: '#ccc', // Light gray text for readability
     },
   };
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=4"
+        );
+        const articleData = response.data.data[0]?.article_data;
+        setArticle(articleData);
+      } catch (err) {
+        setError("Failed to fetch article data.");
+        console.error(err);
+      }
+    };
+
+    fetchArticle();
+  }, []);
+
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    // <section style={styles.container}>
-    //   <div style={styles.intro}>
-    //     {/* <h1 style={styles.heading}>Our Expertise</h1> */}
-    //     <div style={styles.description}>
-    //     {/* <Link href="project-one"> */}
-    //       <div style={styles.item} className="row">
-    //         <div className="col-12 col-lg-6">
-    //            <Image src={branding} alt="Brand Development" style={styles.image} />
-    //         </div>
-             
-    //           <div style={styles.content} className="col-12 col-lg-6">
-    //             <h2 style={styles.title}>Branding</h2>
-    //             <p className="ceo-msg">
-    //             Welcome to Spearhead Creativity's Brand Development page, where we transform visions into iconic brands. In the bustling marketplace, a distinct and memorable brand identity is essential.<br/><br/> Our experts at Spearhead Creativity craft and 
-    //             refine brand stories that captivate and connect. Whether it’s designing impactful logos or creating a cohesive brand voice, we ensure your business stands out and resonates with your audience. Embark on a branding journey with us and position your company as a leader in your industry.
-    //             </p>
-    //           </div>
-    //       </div>
-    //       <div>
-    //       <div className="footer__cta text-start mt-5 text-center">
-    //             <Link href="project-branding-case-study" className="btn btn--secondary-2 casestudy-button">
-    //              Explore Our Work
-    //             </Link>
-    //           </div>
-    //       </div>
-    //     {/* </Link> */}
- 
-        
-    //     </div>
-    //   </div>
-    // </section>
     <section className="section award">
     <div className="container">
       <div className="row gaper align-items-center justify-content-center">
         <div className="row">
           <div className="col-md-6 col-12 d-md-flex align-items-center award__content section__content">
-            <h2 className="title title-anim brand-title m-md-0 m-xl-0 mt-4">
+            {/* <h2 className="title title-anim brand-title m-md-0 m-xl-0 mt-4">
               Branding
-              </h2>
+              {article.title}
+              </h2> */}
+              {article && (
+                <h2 className="title title-anim brand-title m-md-0 m-xl-0 mt-4">
+                  {article.title}
+                </h2>
+                )}
           </div>
+          
           <div className="award__thumb dir-rtl mt-5 col-md-6 col-12">
-            <Image src={branding} style={{height:'350px',width:"100%"}} alt="Image" className="unset fade-left" />
+            <Image
+            src="https://techfluxsolutions.com//web_shop//media//spearhead_243435432////branding.jpeg"
+            width={500} 
+            height={600} 
+             alt="Image" 
+            className="unset fade-left" />
           </div>
         </div>
-        <div className="col-12 ">
-          <div className="award__content section__content">
-           
-            {/* <h2 className="title title-anim brand-title">
-            Branding
-            </h2> */}
-            <div className="sakal-paragraph">
-               <div className="sakal-animated-paragraph">
-                  <p className="sakal-para brand-para" style={{fontSize:"25px"}}>
-                  
-                  Welcome to Spearhead Creativity's Brand Development page, where we transform visions into iconic brands. In the bustling marketplace, a distinct and memorable brand identity is essential.
 
-                  </p>
-                  <p className="sakal-para brand-para" style={{fontSize:"25px"}}>
-                  Our experts at Spearhead Creativity craft and 
-                              refine brand stories that captivate and connect. Whether it’s designing impactful logos or creating a cohesive brand voice, we ensure your business stands out and resonates with your audience.  Embark on a branding journey with us and position your company as a leader in your industry.
-                  </p>
-                  
+         {article && (
+            <div className="col-12">
+              <div className="award__content section__content">
+                <div className="sakal-paragraph">
+                  <div className="sakal-animated-paragraph">
+                    <p
+                      className="sakal-para brand-para"
+                      style={{ fontSize: "25px" }}
+                    >
+                      {article.introtext_}
+                    </p>
+                    <p
+                      className="sakal-para brand-para"
+                      style={{ fontSize: "25px" }}
+                    >
+                      {article.fulltext_}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="footer__cta text-start mt-5 text-center">
+                  <Link
+                    href="project-branding-case-study"
+                    className="btn btn--secondary-2 casestudy-button"
+                  >
+                    Explore Our Work
+                  </Link>
+                </div>
+
+                <div className="award__content-meta"></div>
               </div>
-
             </div>
-
-            <div className="footer__cta text-start mt-5 text-center">
-                <Link href="project-branding-case-study" className="btn btn--secondary-2 casestudy-button">
-                 Explore Our Work
-                </Link>
-               </div>
-            <div className="award__content-meta">
-              {/* <div className="single">
-                <h4>2018</h4>
-                <h4>Awwwards</h4>
-                <p>Website of the day</p>
-              </div>
-              <div className="single">
-                <h4>2020</h4>
-                <h4>Awwwards</h4>
-                <p>National design contest</p>
-              </div>
-              <div className="single">
-                <h4>2022</h4>
-                <h4>Awwwards</h4>
-                <p>Apps of the day</p>
-              </div> */}
-            </div>
-            {/* <div className="section__content-cta">
-              <Link href="about-us" className="btn btn--primary">
-                Know More
-              </Link>
-            </div> */}
-          </div>
-        </div>
+          )}
       </div>
     </div>
     <Image src={glow_star} alt="Image" className="star" />

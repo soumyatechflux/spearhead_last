@@ -1,70 +1,120 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import axios from "axios";
 
-const serviceData = [
-  {
-    id: 1,
-    // title: "Branding",
-    subTitle: "01",
-    // details: ["Define Idea", "Competitor Research", "Target Audience", "Idea Validation", "Customer Value"],
-    photo:"/images/SM/pic1_files/pic1.jpg",
-    link: "https://www.instagram.com/p/C6yXRoYIkYS/?img_index=1"
-  },
-  {
-    id: 2,
-    title: "UX Design",
-    subTitle: "02",
-    photo:"/images/SM/pic1_files/pic2.jpg",
-    // details: ["Estimation", "Research", "Story board", "User Flow", "Information Architecture"],
-    link: "https://www.instagram.com/barbararizziatelier/p/C1CWcY5tn5L/?img_index=1"
-  },
-  {
-    id: 3,
-    title: "UI Design",
-    subTitle: "03",
-    photo:"/images/SM/pic1_files/pic3.jpg",
-    // details: ["Hi-Fidelity Wireframe", "Design System", "Final Presentation", "Final Delivery", "Post Delivery Support"],
-    link: "https://www.instagram.com/barbararizziatelier/p/C2IbTlRIJLO/?img_index=1"
-  },
-  {
-    id: 4,
-    title: "Development",
-    subTitle: "04",
-    photo:"/images/SM/pic1_files/pic4.webp",
-    // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
-    link: "https://www.instagram.com/barbararizziatelier/p/DAKkEgho9Qt/"
-  },
-  {
-    id: 5,
-    title: "Development",
-    subTitle: "05",
-    photo:"/images/SM/pic1_files/pic5.webp",
-    // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
-    link: "https://www.instagram.com/barbararizziatelier/p/DAH9lGRolaf/"
-  },
-  {
-    id: 6,
-    title: "Development",
-    subTitle: "06",
-    photo:"/images/SM/pic1_files/pic6.jpg",
-    // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
-    link: "https://www.instagram.com/barbararizziatelier/reel/DAGx1BaIVaS/"
-  },
 
-  {
-    id: 7,
-    title: "Development",
-    subTitle: "07",
-    photo:"/images/SM/pic1_files/pic7.jpg",
-    // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
-    link: "https://www.instagram.com/barbararizziatelier/p/C_7ruHEIbZL/?img_index=1"
-  },
-];
 
 const ProjectSocialMediaCaseStudy = () => {
+  const [serviceData, setServiceData] = useState([
+    {
+      id: 1,
+      // title: "Branding",
+      subTitle: "01",
+      // details: ["Define Idea", "Competitor Research", "Target Audience", "Idea Validation", "Customer Value"],
+      photo:"/images/SM/pic1_files/pic1.jpg",
+      link: "https://www.instagram.com/p/C6yXRoYIkYS/?img_index=1"
+    },
+    {
+      id: 2,
+      title: "UX Design",
+      subTitle: "02",
+      photo:"/images/SM/pic1_files/pic2.jpg",
+      // details: ["Estimation", "Research", "Story board", "User Flow", "Information Architecture"],
+      link: "https://www.instagram.com/barbararizziatelier/p/C1CWcY5tn5L/?img_index=1"
+    },
+    {
+      id: 3,
+      title: "UI Design",
+      subTitle: "03",
+      photo:"/images/SM/pic1_files/pic3.jpg",
+      // details: ["Hi-Fidelity Wireframe", "Design System", "Final Presentation", "Final Delivery", "Post Delivery Support"],
+      link: "https://www.instagram.com/barbararizziatelier/p/C2IbTlRIJLO/?img_index=1"
+    },
+    {
+      id: 4,
+      title: "Development",
+      subTitle: "04",
+      photo:"/images/SM/pic1_files/pic4.webp",
+      // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
+      link: "https://www.instagram.com/barbararizziatelier/p/DAKkEgho9Qt/"
+    },
+    {
+      id: 5,
+      title: "Development",
+      subTitle: "05",
+      photo:"/images/SM/pic1_files/pic5.webp",
+      // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
+      link: "https://www.instagram.com/barbararizziatelier/p/DAH9lGRolaf/"
+    },
+    {
+      id: 6,
+      title: "Development",
+      subTitle: "06",
+      photo:"/images/SM/pic1_files/pic6.jpg",
+      // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
+      link: "https://www.instagram.com/barbararizziatelier/reel/DAGx1BaIVaS/"
+    },
+  
+    {
+      id: 7,
+      title: "Development",
+      subTitle: "07",
+      photo:"/images/SM/pic1_files/pic7.jpg",
+      // details: ["Front End", "Backend", "Mobile App", "Post Delivery Support", "Server Development"],
+      link: "https://www.instagram.com/barbararizziatelier/p/C_7ruHEIbZL/?img_index=1"
+    },
+  ]);
+
+  useEffect(() => {
+
+    const fetch_images = async () => {
+      try {
+        const formData = new FormData();
+        formData.append("client_dir_name", "spearhead_243435432");
+        formData.append("client_dir", "pages/pa_barbaraizziatelier");
+
+        const response = await axios.post(
+          'https://techfluxsolutions.com/web_shop/app/api/fetch_images.php',
+          formData
+        );
+        // console.log(response?.data);
+        // return;
+        if (response?.data) {
+          const images = response?.data;
+          console.log("Imagews", images);
+
+          const perfect_obj = images.map((img:string, index:number) => {
+          const imgName = img.split('/').pop()?.replace(/\.[^/.]+$/, '') || ''; // Get basename without extension
+
+            return {
+                id: index + 1,
+                subTitle: String(index + 1).padStart(2, '0'),
+                photo: img,
+                link: `https://www.instagram.com/p/${imgName}/?img_index=1`
+            };
+        });
+
+        setServiceData(perfect_obj);
+
+          // setArticle41(response.data.data[0].article_data);
+        } else {
+          // setError(response.data.error_msg || 'Data not found for article 41');
+        }
+      } catch (err) {
+        // setError('Failed to fetch article 41');
+      } finally {
+        // setLoading(false); // Update loading after first call
+      }
+    };
+
+    fetch_images();
+  },[]);
+
+
+
   return (
     <section className="section service-t">
       

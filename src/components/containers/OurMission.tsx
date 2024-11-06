@@ -1,14 +1,41 @@
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Londan from "public/images/AdvisoryService/one.jpg";
 import paris from "public/images/AdvisoryService/two.jpg";
 import dubai from "public/images/AdvisoryService/three.jpg";
 import four from "public/images/AdvisoryService/four.jpg";
 import five from "public/images/AdvisoryService/five.jpg";
+interface ArticleData {
+  id: string;
+  title: string;
+  alias: string;
+  introtext_: string;
+  fulltext_: string;
+  category_id: string;
+  created_at: string;
+  created_by: string;
+  images: {
+    intro_image_link: string;
+    intro_image_alt_text: string;
+    full_image_link: string;
+    full_image_alt_text: string;
+  };
+  hits: string;
+  ordering: string;
+  published: string;
+}
 
 const OurMission = () => {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [article41, setArticle41] = useState<ArticleData | null>(null);
+  const [article42, setArticle42] = useState<ArticleData | null>(null);
+  const [article43, setArticle43] = useState<ArticleData | null>(null);
+  const [article44, setArticle44] = useState<ArticleData | null>(null);
+  const [article45, setArticle45] = useState<ArticleData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -25,7 +52,6 @@ const OurMission = () => {
     if (element) {
       observer.observe(element);
     }
-
     // Cleanup observer on unmount
     return () => {
       if (element) {
@@ -33,131 +59,275 @@ const OurMission = () => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const fetchArticle41 = async () => {
+      try {
+        const response = await axios.get(
+          'https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=41'
+        );
+        if (response.data.response) {
+          setArticle41(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg || 'Data not found for article 41');
+        }
+      } catch (err) {
+        setError('Failed to fetch article 41');
+      } finally {
+        setLoading(false); // Update loading after first call
+      }
+    };
+
+    fetchArticle41();
+  }, []);
+
+  useEffect(() => {
+    const fetchArticle42 = async () => {
+      try {
+        const response = await axios.get(
+          'https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=42'
+        );
+        if (response.data.response) {
+          setArticle42(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg || 'Data not found for article 42');
+        }
+      } catch (err) {
+        setError('Failed to fetch article 42');
+      } finally {
+        setLoading(false); // Update loading after second call
+      }
+    };
+
+    fetchArticle42();
+  }, []);
+
+  useEffect(() => {
+    const fetchArticle43 = async () => {
+      try {
+        const response = await axios.get(
+          'https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=43'
+        );
+        if (response.data.response) {
+          setArticle43(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg || 'Data not found for article 43');
+        }
+      } catch (err) {
+        setError('Failed to fetch article 43');
+      } finally {
+        setLoading(false); // Update loading after third call
+      }
+    };
+
+    fetchArticle43();
+  }, []);
+  useEffect(() => {
+    const fetchArticle44 = async () => {
+      try {
+        const response = await axios.get(
+          'https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=44'
+        );
+        if (response.data.response) {
+          setArticle44(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg || 'Data not found for article 44');
+        }
+      } catch (err) {
+        setError('Failed to fetch article 44');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticle44();
+  }, []);
+  useEffect(() => {
+    const fetchArticle45 = async () => {
+      try {
+        const response = await axios.get(
+          'https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=45'
+        );
+        if (response.data.response) {
+          setArticle45(response.data.data[0].article_data);
+        } else {
+          setError(response.data.error_msg || 'Data not found for article 45');
+        }
+      } catch (err) {
+        setError('Failed to fetch article 45');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticle45();
+  }, []);
+
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <section className="section mission-s fade-wrapper">
       <div className="container">
         <div className="row">
-          <div className="col-12">
-            {/* <div className="section__header--secondary">
-              <div className="row gaper align-items-center">
-                <div className="col-12 col-lg-5 col-xxl-5">
-                  <div className="section__header text-center text-lg-start mb-0">
-                    <span className="sub-title">
-                      mission & vission
-                      <i className="fa-solid fa-arrow-right"></i>
-                    </span>
-                    <h2 className="title title-anim">Our Commitment</h2>
-                  </div>
-                </div>
-                <div className="col-12 col-lg-7 col-xxl-5 offset-xxl-2">
-                  <div className="text-center text-lg-start">
-                    <p>
-                    We specialize in providing top-notch advisory services to help businesses unlock their full creative potential. Our team of experts is dedicated to guiding you on a journey towards 
-                    innovative thinking, strategic planning, and effective execution.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
+          <div className="col-12"></div>
         </div>
+
         <div className="row gaper">
           <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top ">
-              <h3   ref={elementRef}
-      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Creative Strategy Development</h3>
+              <h3
+                ref={elementRef}
+                className={`typing-animation ${
+                  isVisible ? "typing-start" : ""
+                }`}
+              >
+                {/* Creative Strategy Development */}
+                {article41?.title}
+              </h3>
               <div className="section__content-cta">
                 <p className="primary-text">
-                We work closely with you to devise creative strategies that align with your business objectives and 
-                target audience. Our team ensures that your brand stands out and engages customers effectively.
+                  {article41?.introtext_}
                 </p>
               </div>
             </div>
           </div>
           <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
-              <Image src={dubai} alt="Image" className="adv-img" style={{width:'100%'}}/>
+              <Image
+                src="https://techfluxsolutions.com//web_shop//media//spearhead_243435432//Advisory-Service.jpg"
+                alt="Image"
+                className="adv-img"
+                width={800}
+                height={800}
+              />
             </div>
           </div>
 
-
           <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
-              <Image src={Londan} alt="Image" className="adv-img" style={{width:'100%'}}/>
+              <Image
+                // src={Londan}
+                src="https://techfluxsolutions.com//web_shop//media//spearhead_243435432////one.jpg"
+                alt="Image"
+                className="adv-img"
+                width={1000}
+                height={1000}
+              />
             </div>
           </div>
           <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3   ref={elementRef}
-      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Ideation Workshops</h3>
+              <h3
+                ref={elementRef}
+                className={`typing-animation ${
+                  isVisible ? "typing-start" : ""
+                }`}
+              >
+                {/* Ideation Workshops */}
+                {article42?.title}
+              </h3>
               <div className="section__content-cta">
                 <p className="primary-text">
-                Our interactive and collaborative workshops ignite a spark of creativity among your team. Through thought-provoking exercises and 
-                techniques, we empower your team members to generate groundbreaking ideas and unique solutions.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6 text-section">
-            <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3   ref={elementRef}
-      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Trend Analysis and Market Research</h3>
-              <div className="section__content-cta">
-                <p className="primary-text">
-                Stay ahead of the curve with our comprehensive trend analysis and market research services. We analyze industry trends, 
-                consumer behavior, and competitor insights to help you identify opportunities and capture the market.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6 image-section">
-            <div className="mission-s__single fade-top">
-              <Image src={paris} alt="Image" className="adv-img" style={{width:'100%'}}/>
-            </div>
-          </div>
-
-
-          <div className="col-12 col-lg-6 image-section">
-            <div className="mission-s__single fade-top">
-              <Image src={four} alt="Image" className="adv-img" style={{width:'100%'}}/>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6 text-section">
-            <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3   ref={elementRef}
-      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Innovation Roadmapping</h3>
-              <div className="section__content-cta">
-                <p className="primary-text">
-                Our experts assist you in creating a roadmap for innovation, enabling you to implement new ideas seamlessly. We identify potential bottlenecks, 
-                devise actionable plans, and provide ongoing support to ensure successful implementation.
+                {article42?.introtext_}
                 </p>
               </div>
             </div>
           </div>
           <div className="col-12 col-lg-6 text-section">
             <div className="mission-s__single mission-s__single--alt fade-top">
-              <h3   ref={elementRef}
-      className={`typing-animation ${isVisible ? 'typing-start' : ''}`}>Creative Evaluation and Optimization</h3>
+              <h3
+                ref={elementRef}
+                className={`typing-animation ${
+                  isVisible ? "typing-start" : ""
+                }`}
+              >
+                {article43?.title}
+              </h3>
               <div className="section__content-cta">
                 <p className="primary-text">
-                We conduct rigorous evaluations of your creative campaigns, identifying areas for improvement and optimization. Through 
-                data-driven analysis and feedback, we guide you toward achieving maximum impact and ROI
+              {article43?.introtext_}
+              </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-lg-6 image-section">
+            <div className="mission-s__single fade-top">
+              <Image
+                // src={paris}
+                src="https://techfluxsolutions.com//web_shop//media//spearhead_243435432////two.jpg"
+                alt="Image"
+                className="adv-img"
+               width={1000}
+               height={1000}
+              />
+            </div>
+          </div>
+
+          <div className="col-12 col-lg-6 image-section">
+            <div className="mission-s__single fade-top">
+              <Image
+                // src={four}
+                src="https:\/\/techfluxsolutions.com\/web_shop\/media\/spearhead_243435432\/\/four.jpg"
+                alt="Image"
+                className="adv-img"
+               width={1000}
+               height={1000}
+              />
+            </div>
+          </div>
+          <div className="col-12 col-lg-6 text-section">
+            <div className="mission-s__single mission-s__single--alt fade-top">
+              <h3
+                ref={elementRef}
+                className={`typing-animation ${
+                  isVisible ? "typing-start" : ""
+                }`}
+              >
+                {article44?.title}
+              </h3>
+              <div className="section__content-cta">
+                <p className="primary-text">
+                {article44?.introtext_}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-lg-6 text-section">
+            <div className="mission-s__single mission-s__single--alt fade-top">
+              <h3
+                ref={elementRef}
+                className={`typing-animation ${
+                  isVisible ? "typing-start" : ""
+                }`}
+              >
+               {article45?.title}
+              </h3>
+              <div className="section__content-cta">
+                <p className="primary-text">
+                {article45?.introtext_}
                 </p>
               </div>
             </div>
           </div>
           <div className="col-12 col-lg-6 image-section">
             <div className="mission-s__single fade-top">
-              <Image src={five} alt="Image" className="adv-img" style={{width:'100%'}}/>
+              <Image
+                // src={five}
+                src="https:\/\/techfluxsolutions.com\/web_shop\/media\/spearhead_243435432\/\/five.jpg"
+                alt="Image"
+                className="adv-img"
+                width={1000}
+                height={1000}
+              />
             </div>
           </div>
-          
-          {/* <div className="">
-            <p>
-              Partner with Spearhead Creativity Advisory Service to unlock your business's creative potential, drive innovation, and establish
-               a unique market position. Embrace the power of creativity and let us help you soar to new heights!
-            </p>
-          </div> */}
         </div>
       </div>
     </section>
@@ -165,3 +335,4 @@ const OurMission = () => {
 };
 
 export default OurMission;
+

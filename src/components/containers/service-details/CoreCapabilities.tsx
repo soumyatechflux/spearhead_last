@@ -4,34 +4,113 @@ import icon1 from "public/images/capabilities/Icons.svg";
 import icon2 from "public/images/capabilities/Icons two.svg";
 import icon3 from "public/images/capabilities/Icons three.svg";
 import icon4 from "public/images/capabilities/Icons four.svg";
+import axios from 'axios';
 
-const CoreCapabilities = () => {
-  const [hover, setHover] = useState(1);
+// Define the shape of the article data
+interface ArticleData {
+  title: string;
+  introtext_: string;
+  created_at: string;
+}
+
+// Define the shape of the API response
+interface ApiResponse {
+  response: boolean;
+  data: Array<{
+    article_data: ArticleData;
+  }>;
+  error_msg?: string; // optional error message
+}
+
+const CoreCapabilities: React.FC = () => {
+  const [hover, setHover] = useState<number>(1);
+  const [articles, setArticles] = useState<ArticleData[]>([]); // Store multiple articles
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const [response1, response2, response3, response4] = await Promise.all([
+          axios.get<ApiResponse>('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=12'),
+          axios.get<ApiResponse>('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=13'),
+          axios.get<ApiResponse>('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=14'),
+          axios.get<ApiResponse>('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=15'), // New API for ID 15
+        ]);
+
+        // Log the full responses for debugging
+        console.log(response1.data, response2.data, response3.data, response4.data);
+
+        // Check if all responses are successful
+        const articlesData: ArticleData[] = [];
+        if (response1.data.response) {
+          articlesData.push(response1.data.data[0].article_data);
+        } else {
+          setError(response1.data.error_msg || 'Unknown error occurred for ID 12');
+        }
+
+        if (response2.data.response) {
+          articlesData.push(response2.data.data[0].article_data);
+        } else {
+          setError(response2.data.error_msg || 'Unknown error occurred for ID 13');
+        }
+
+        if (response3.data.response) {
+          articlesData.push(response3.data.data[0].article_data);
+        } else {
+          setError(response3.data.error_msg || 'Unknown error occurred for ID 14');
+        }
+
+        if (response4.data.response) {
+          articlesData.push(response4.data.data[0].article_data);
+        } else {
+          setError(response4.data.error_msg || 'Unknown error occurred for ID 15');
+        }
+
+        setArticles(articlesData); // Set all articles
+      } catch (err) {
+        // Log the error for debugging
+        console.error(err);
+        setError('Error fetching data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   const services = [
     {
-      title: "Strategic Planning",
+      title: articles.length > 0 ? articles[0].title : "",
       icon: icon1,
-      description:
-        "Unlock your brand's potential with our expert strategic planning services. Our approach focuses on aligning business goals with actionable strategies to ensure long-term growth and competitive advantage.",
+      description: articles.length > 0 ? articles[0].introtext_ : "",
     },
     {
-      title: "Concept Design",
+      title: articles.length > 1 ? articles[1].title : "", 
       icon: icon2,
       description:
-        "Ignite creativity with our concept design solutions that bring your vision to life. We specialize in crafting unique and innovative concepts that not only capture attention but also represent your brand seamlessly.",
+        articles.length > 1 ? articles[1].introtext_ : "",
     },
     {
-      title: "Asset Development",
+      title: articles.length > 2 ? articles[2].title : "", 
       icon: icon3,
       description:
-        "Equip your brand with high-quality asset development tailored to your needs. Our team creates powerful visual and digital assets that enhance your brand's message and resonate with your target audience.",
+        articles.length > 2 ? articles[2].introtext_ : "",
     },
     {
-      title: "Brand Activations & Engagement",
+      title: articles.length > 3 ? articles[3].title : "", 
       icon: icon4,
       description:
-        "Boost your brand's impact with our dynamic brand activations and engagement strategies. We design experiences that increase brand awareness, foster meaningful interactions, and create loyal customers.",
+        articles.length > 3 ? articles[3].introtext_ : "",
     },
   ];
 

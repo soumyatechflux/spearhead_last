@@ -14,6 +14,9 @@ import ProjectSocialMediaCaseStudy2 from "@/components/containers/project/Projec
 import ProjectSocialMediaCaseStudy3 from "@/components/containers/project/ProjectSocialMediaCaseStudy3";
 
 const SocialMediaCS = () => {
+
+    
+
   return (
     <Layout header={2} video={0}>
       <ProjectSocialMediaCSBanner/>

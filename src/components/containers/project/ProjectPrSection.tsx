@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import hrone from "public/images/projects/hr-one.png";
@@ -12,7 +13,42 @@ import pr from "public/images/projects/pr.jpg";
 import glow_star from "public/images/glowing star.gif"; 
 import dotlarge from "public/images/agency/dot-large.png";
 
+
+
+
+// Define the structure for the article data
+interface Article {
+  id: string;
+  title: string;
+  alias: string;
+  introtext_: string;
+  fulltext_: string;
+  images: {
+    intro_image_link: string;
+    intro_image_alt_text: string;
+    full_image_link: string;
+    full_image_alt_text: string;
+  };
+  created_at: string;
+  created_by: string;
+  hits: string;
+  ordering: string;
+  published: string;
+}
+
+// Define the structure of the API response
+interface ApiResponse {
+  response: boolean;
+  success_msg: string;
+  error_msg: string;
+  data: {
+    article_data: Article;
+  }[];
+}
+
 const ProjectPrSection: React.FC = () => {
+  const [article, setArticle] = useState<Article | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const styles = {
     container: {
       padding: '2rem',
@@ -60,70 +96,63 @@ const ProjectPrSection: React.FC = () => {
       color: '#ccc', // Light gray text for readability
     },
   };
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(
+          "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=5"
+        );
+
+        // Check if response is successful and article data exists
+        if (response.data.response && response.data.data.length > 0) {
+          const articleData = response.data.data[0].article_data;
+          setArticle(articleData);
+        } else {
+          setError("No article data found.");
+        }
+      } catch (err) {
+        setError("Failed to fetch article data.");
+        console.error(err);
+      }
+    };
+
+    fetchArticle();
+  }, []);
+
+  if (error) return <div>Error: {error}</div>;
   return (
-    // <section style={styles.container}>
-    //   <div style={styles.intro}>
-    //     {/* <h1 style={styles.heading}>Our Expertise</h1> */}
-    //     <div style={styles.description}>
-    //     {/* <Link href="project-one"> */}
-    //       <div style={styles.item} className="row">
-    //         <div className="col-12 col-lg-6">
-    //            <Image src={branding} alt="Brand Development" style={styles.image} />
-    //         </div>
-             
-    //           <div style={styles.content} className="col-12 col-lg-6">
-    //             <h2 style={styles.title}>Branding</h2>
-    //             <p className="ceo-msg">
-    //             Welcome to Spearhead Creativity's Brand Development page, where we transform visions into iconic brands. In the bustling marketplace, a distinct and memorable brand identity is essential.<br/><br/> Our experts at Spearhead Creativity craft and 
-    //             refine brand stories that captivate and connect. Whether it’s designing impactful logos or creating a cohesive brand voice, we ensure your business stands out and resonates with your audience. Embark on a branding journey with us and position your company as a leader in your industry.
-    //             </p>
-    //           </div>
-    //       </div>
-    //       <div>
-    //       <div className="footer__cta text-start mt-5 text-center">
-    //             <Link href="project-branding-case-study" className="btn btn--secondary-2 casestudy-button">
-    //              Explore Our Work
-    //             </Link>
-    //           </div>
-    //       </div>
-    //     {/* </Link> */}
- 
-        
-    //     </div>
-    //   </div>
-    // </section>
     <section className="section award">
     <div className="container">
       <div className="row gaper align-items-center">
-        {/* <div className="col-12 ">
-          <div className="award__thumb dir-rtl mt-5">
-            <Image src={pr} style={{width:"500px"}} alt="Image" className="unset fade-left" />
-          </div>
-        </div> */}
          <div className="row">
           <div className="col-md-6 col-12 d-md-flex align-items-center award__content section__content">
             <h2 className="title title-anim brand-title m-md-0 m-xl-0 mt-4">
-               Public Relations
+               {/* Public Relations */}
+               {article?.title || " "}
             </h2>
           </div>
           <div className="award__thumb dir-rtl mt-5 col-md-6 col-12">
-            <Image src={pr} style={{width:"500px"}} alt="Image" className="unset fade-left" />
+            <Image 
+            // src={pr} 
+            src="https:\/\/techfluxsolutions.com\/web_shop\/media\/spearhead_243435432\/pr.jpg"
+            width={500} 
+            height={600}
+            alt="Image"
+           className="unset fade-left" />
           </div>
         </div>
         <div className="col-12 ">
           <div className="award__content section__content">
-           
-            {/* <h2 className="title title-anim brand-title">
-            Public Relations
-            </h2> */}
+    
             <div className="sakal-paragraph">
                <div className="sakal-animated-paragraph">
                   <p className="sakal-para brand-para" style={{fontSize:"25px"}}>
                   
-                  Welcome to Spearhead Creativity's PR Case Studies page! Here, we highlight our innovative approach and successful projects that captivate audiences and drive results. 
+                  {article?.introtext_ || ""}
                   </p>
                   <p className="sakal-para brand-para" style={{fontSize:"25px"}}>
-                  Explore our exemplary case studies to see our strategic PR expertise in action. For more insights or to collaborate with us, please get in touch. We look forward to bringing your story to life!
+                  {article?.fulltext_ || ""}
 
                   </p>
                   

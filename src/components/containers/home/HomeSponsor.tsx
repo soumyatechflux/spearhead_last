@@ -3,53 +3,8 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-// import one from "public/images/sponsor/three-dark.png";
-// import two from "public/images/sponsor/five-dark.png";
-// import three from "public/images/sponsor/one.png";
-// import four from "public/images/sponsor/one-dark.png";
-// import five from "public/images/sponsor/four-dark.png";
-// import six from "public/images/sponsor/six-dark.png";
-
-// import one from "../../../../public/images/logo_images/ABCD.png";
-
-// import two from "./../../../../public/images/logo_images/Abudhabi.png";
-// import three from "./../../../../public/images/logo_images/New_folder/Accor.png";
-// import four from "./../../../../public/images/logo_images/New_folder/American express.png";
-// import five from "./../../../../public/images/logo_images/New_folder/Barbara rizzi.png";
-// import six from "./../../../../public/images/logo_images/New_folder/Bird.png";
-// import seven from "./../../../../public/images/logo_images/New_folder/carrefour.png";
-// import eight from "./../../../../public/images/logo_images/New_folder/DC.png";
-// import nine from "./../../../../public/images/logo_images/New_folder/Dubai financial center.png";
-// import ten from "./../../../../public/images/logo_images/New_folder/Emirates.png";
-// import eleven from "./../../../../public/images/logo_images/New_folder/Expo2020.png";
-// import twelve from "./../../../../public/images/logo_images/New_folder/Food crowd.png";
-// import thirteen from "./../../../../public/images/logo_images/New_folder/Frame 1-1.png";
-// import fourteen from "./../../../../public/images/logo_images/New_folder/Frame 1-2.png";
-// import fifteen from "./../../../../public/images/logo_images/New_folder/Frame 1-3.png";
-// import sixteen from "./../../../../public/images/logo_images/New_folder/Frame 1.png";
-// import seventeen from "./../../../../public/images/logo_images/New_folder/Habib bank.png";
-// import eighteen from "./../../../../public/images/logo_images/New_folder/Kingdom.png";
-// import nineteen from "./../../../../public/images/logo_images/New_folder/Kwantu.png";
-// import twenty5 from "./../../../../public/images/logo_images/New_folder/Public investment fund.png";
-// import twenty6 from "./../../../../public/images/logo_images/New_folder/Rixos.png";
-// import twenty7 from "./../../../../public/images/logo_images/New_folder/Rolls royce.png";
-// import twenty8 from "./../../../../public/images/logo_images/New_folder/Sharjah media city.png";
-// import twenty9 from "./../../../../public/images/logo_images/New_folder/Viceroy.png";
-// import thirty from "./../../../../public/images/logo_images/New_folder/Sharjah.png";
-// import thirty1 from "./../../../../public/images/logo_images/New_folder/Zoya.png";
-
-
-
-
-
-
 const HomeSponsor = () => {
-
-
-
-
-
-  const one = require("../../../../public/images/logo_images/ABCD.png");
+const one = require("../../../../public/images/logo_images/ABCD.png");
 const two = require("../../../../public/images/logo_images/Abudhabi.png");
 const three = require("../../../../public/images/logo_images/New_folder/Accor.png");
 const four = require("../../../../public/images/logo_images/New_folder/American express.png");
@@ -216,31 +171,6 @@ const thirty1 = require("../../../../public/images/logo_images/New_folder/Zoya.p
                     <Image src={nineteen} alt="Image" />
                   </div>
                 </SwiperSlide>
-                {/* <SwiperSlide>
-                  <div className="sponsor__slider-item">
-                    <Image src={twenty} alt="Image" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="sponsor__slider-item">
-                    <Image src={twenty1} alt="Image" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="sponsor__slider-item">
-                    <Image src={twenty2} alt="Image" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="sponsor__slider-item">
-                    <Image src={twenty3} alt="Image" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="sponsor__slider-item">
-                    <Image src={twenty4} alt="Image" />
-                  </div>
-                </SwiperSlide> */}
                 <SwiperSlide>
                   <div className="sponsor__slider-item">
                     <Image src={twenty5} alt="Image" />

@@ -3,10 +3,52 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import approch from "public/images/approch-1.png";
+import axios from "axios";
+
+interface ArticleData {
+  id: string;
+  title: string;
+  alias: string;
+  introtext_: string;
+  fulltext_: string;
+  category_id: string;
+  created_at: string;
+  created_by: string;
+  images: {
+    intro_image_link: string;
+    intro_image_alt_text: string;
+    full_image_link: string;
+    full_image_alt_text: string;
+  };
+  hits: string;
+  ordering: string;
+  published: string;
+  star: null | string;
+  og_title: string;
+  og_description: string;
+  og_image: string;
+  meta_title: string;
+  meta_keyword: string;
+  meta_description: string;
+  parent_language_id: string;
+  language_id: string;
+}
+
+interface ApiResponse {
+  response: boolean;
+  success_msg: string;
+  error_msg: string;
+  data: {
+    article_data: ArticleData;
+    field_data: Array<{ data: string }>[]; 
+  }[]; 
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HomeApproch = () => {
+  const [article, setArticle] = useState<ApiResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [isReadMore, setIsReadMore] = useState(true);
 
   useEffect(() => {
@@ -43,11 +85,7 @@ const HomeApproch = () => {
           scrollTrigger: { trigger: element },
         });
 
-        axBarTimeline.fromTo(
-          skillBarPercent,
-          { width: 0 },
-          { width: target }
-        );
+        axBarTimeline.fromTo(skillBarPercent, { width: 0 }, { width: target });
 
         axBarTimeline.from(
           percentValue,
@@ -62,80 +100,73 @@ const HomeApproch = () => {
     setIsReadMore(!isReadMore);
   };
 
-  // const ReadMore = ({ text }) => {
-  //   const [isReadMore, setIsReadMore] = useState(true);
-  //   const toggleReadMore = () => {
-  //     setIsReadMore(!isReadMore);
-  //   };
-    
-
-  //   return (
-  //     <p className="text">
-  //       {isReadMore ? text.slice(0, 100) : text}
-  //       <span onClick={toggleReadMore} className="read-more-btn">
-  //         {isReadMore ? "...read more" : " show less"}
-  //       </span>
-  //     </p>
-  //   );
-  // };
-
   interface ReadMoreProps {
     text: string;
   }
-  
+
   const ReadMore: React.FC<ReadMoreProps> = ({ text }) => {
     const [isReadMore, setIsReadMore] = useState(true);
-  
+
     const toggleReadMore = () => {
       setIsReadMore(!isReadMore);
     };
-  
+
     // Split the text into paragraphs based on line breaks (\n)
-    const paragraphs = text.split('\n');
-  
+    const paragraphs = text.split("\n");
+
+    useEffect(() => {
+      const fetchArticle = async () => {
+        try {
+          const response = await axios.get<ApiResponse>(
+            "https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=51"
+          );
+          setArticle(response.data);
+        } catch (err) {
+          setError("Error fetching article data.");
+          console.error(err);
+        }
+      };
+
+      fetchArticle();
+    }, []);
+
+    if (error) {
+      return <div>{error}</div>;
+    }
+
+    if (!article) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
-        {isReadMore
-          ? paragraphs.slice(0, 1).map((para, index) => <p key={index}>{para}</p>)  // Show first paragraph only when collapsed
-          : paragraphs.map((para, index) => <p key={index}>{para}</p>)              // Show all paragraphs when expanded
+        {
+          isReadMore
+            ? paragraphs
+                .slice(0, 1)
+                .map((para, index) => <p key={index}>{para}</p>)
+            : paragraphs.map((para, index) => <p key={index}>{para}</p>)
         }
         <span onClick={toggleReadMore} className="read-more-btn">
-          {isReadMore ? '...read more' : ' show less'}
+          {isReadMore ? "...read more" : " show less"}
         </span>
       </div>
     );
   };
 
   return (
-    <section className=" offer fade-wrapper light">
+    <section className="offer fade-wrapper light">
       <div className="container">
         <div className="row gaper align-items-center">
           <div className="col-12 col-lg-6">
             <div className="agency__content section__content">
-              <h2 className="title title-anim">Spearhead Approach</h2>
+              <h2 className="title title-anim">
+                {article && article.data[0].article_data.title}
+              </h2>
               <div className="paragraph">
-
-                {/* <ReadMore
-                  text="Spearhead Creativity delivers truly holistic solutions for growing businesses and large corporations looking to refresh or rejuvenate their communications strategy. Our dedicated consultancy, creative and branding studio work together to amplify our clients’ strengths, identify and ameliorate weaknesses as well as broaden brand horizons with the single aim of creating meaningful value."
-
-                /> */}
-
-            
-                  <ReadMore 
-                    text={`Spearhead Creativity delivers truly holistic solutions for growing businesses and large corporations looking to refresh or rejuvenate their communications strategy. Our dedicated consultancy, creative and branding studio work together to amplify our clients’ strengths, identify and ameliorate weaknesses as well as broaden brand horizons with the single aim of creating meaningful value.
-                    
-                  We bring our strategy and your brand to life through content driven creative solutions.Output: visual identity, visual language, collateral design, communication touchpoints.
-
-                  Collaborating with clients for in-market implementation is a critical component of our offering. It represents the moment of truth for the strength of our strategy and the compelling nature of our creativity.
-                  
-                  Output: ready to use artwork for print, digital, advertisement,media, operational, internal/ external comms, promotional purpoes and events, messaging roll-out, cross-platform campaigns.
-                  
-                  Our core competency is the art of planning and directing overall corporate marketing, sales, branding and communication strategies to build and sustain brand equity.`}
-
-                  />
-             
-               
-
+                <ReadMore
+                  text={article ? article.data[0].article_data.introtext_ : ""}
+                />
               </div>
             </div>
           </div>
@@ -143,11 +174,13 @@ const HomeApproch = () => {
           <div className="col-12 col-lg-6 approch-right-side">
             <div className="agency__thumb">
               <Image
-              style={{padding:'10px'}}
-                src={approch}
+                style={{ padding: "10px" }}
+                src="https://techfluxsolutions.com//web_shop////media//spearhead_243435432////approch-1.png"
                 alt="Image"
                 className="approch-img"
                 priority
+                width={600} // specify the width you want
+                height={400} // specify the height you want
               />
             </div>
           </div>

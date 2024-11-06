@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Image from "next/image";
 import Link from "next/link";
 import blogthumb from "public/images/offer/blog-thumb.png";
@@ -10,9 +11,42 @@ import result from "../../../../../public/images/CaseStudy/result_.png";
 import challange from "../../../../../public/images/CaseStudy/challange.png";
 import arrow1 from "public/images/projects/Group.png";
 
+interface ArticleData {
+    id: string;
+    title: string;
+    alias: string;
+    introtext_: string;
+    fulltext_: string;
+    images: {
+      intro_image_link: string;
+      intro_image_alt_text: string;
+      full_image_link: string;
+      full_image_alt_text: string;
+    };
+  }
+  
+  interface FieldData {
+    data: string;
+  }
+  
 const BrandingCS2 = () => {
     const [hovered, setHovered] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [article1, setArticle1] = useState<ArticleData | null>(null);
+  const [article2, setArticle2] = useState<ArticleData | null>(null);
+  const [article3, setArticle3] = useState<ArticleData | null>(null);
+  const [article4, setArticle4] = useState<ArticleData | null>(null);
+  const [article5, setArticle5] = useState<ArticleData | null>(null);
+  const [fieldData1, setFieldData1] = useState<FieldData[]>([]);
+  const [fieldData2, setFieldData2] = useState<FieldData[]>([]);
+  const [fieldData3, setFieldData3] = useState<FieldData[]>([]);
+  const [fieldData4, setFieldData4] = useState<FieldData[]>([]); 
+  const [fieldData5, setFieldData5] = useState<FieldData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+   
+
     const styles = {
         container: {
             padding: '2rem',
@@ -101,6 +135,118 @@ const BrandingCS2 = () => {
         };
     }, []);
 
+    const handleLoadingAndError = () => {
+        setLoading(true);
+        setError(null);
+      };
+    
+      // Fetch the first article (ID 25)
+      useEffect(() => {
+        const fetchArticle1 = async () => {
+          handleLoadingAndError();
+          try {
+            const response = await axios.get('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=25');
+            const articleData = response.data.data[0].article_data;
+            const fieldDataArray = response.data.data[0].field_data;
+    
+            setArticle1(articleData);
+            setFieldData1(fieldDataArray);
+          } catch (err) {
+            setError('Error fetching article data for ID 25');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchArticle1();
+      }, []);
+    
+      // Fetch the second article (ID 26)
+      useEffect(() => {
+        const fetchArticle2 = async () => {
+          handleLoadingAndError();
+          try {
+            const response = await axios.get('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=26');
+            const articleData = response.data.data[0].article_data;
+            const fieldDataArray = response.data.data[0].field_data;
+    
+            setArticle2(articleData);
+            setFieldData2(fieldDataArray);
+          } catch (err) {
+            setError('Error fetching article data for ID 26');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchArticle2();
+      }, []);
+    
+      // Fetch the third article (ID 27)
+      useEffect(() => {
+        const fetchArticle3 = async () => {
+          handleLoadingAndError();
+          try {
+            const response = await axios.get('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=27');
+            const articleData = response.data.data[0].article_data;
+            const fieldDataArray = response.data.data[0].field_data;
+    
+            setArticle3(articleData);
+            setFieldData3(fieldDataArray);
+          } catch (err) {
+            setError('Error fetching article data for ID 27');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchArticle3();
+      }, []);
+    
+      // Fetch the fourth article (ID 29)
+      useEffect(() => {
+        const fetchArticle4 = async () => {
+          handleLoadingAndError();
+          try {
+            const response = await axios.get('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=29');
+            const articleData = response.data.data[0].article_data;
+            const fieldDataArray = response.data.data[0].field_data;
+    
+            setArticle4(articleData);
+            setFieldData4(fieldDataArray);
+          } catch (err) {
+            setError('Error fetching article data for ID 29');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchArticle4();
+      }, []);
+      useEffect(() => {
+        const fetchArticle5 = async () => {
+          handleLoadingAndError();
+          try {
+            const response = await axios.get('https://techfluxsolutions.com/web_shop/app/api_folder/articles.php?id=28');
+            const articleData = response.data.data[0].article_data;
+            const fieldDataArray = response.data.data[0].field_data;
+    
+            setArticle5(articleData);
+            setFieldData5(fieldDataArray);
+          } catch (err) {
+            setError('Error fetching article data for ID 28');
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchArticle5();
+      }, []);
+    
+      // Handle loading and error states
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>{error}</p>;
+
     return (
         <section className="section offer fade-wrapper light">
 
@@ -118,7 +264,10 @@ const BrandingCS2 = () => {
 
                                 <div className="case-study-container">
                                     {/* <Image src={logo} style={{ width: "500px", height: "100px" }} alt="Image" className="unset fade-left" /> */}
-                                    <h3 className="heading_title">Nesma Injazat: A Case Study in Brand Excellence</h3>
+                                    <h3 className="heading_title">
+                                        {/* Nesma Injazat: A Case Study in Brand Excellence */}
+                                        {article1?.title}
+                                        </h3>
 
                                     <section className="case-study-overview">
 
@@ -133,16 +282,25 @@ const BrandingCS2 = () => {
                                                             <h2>
                                                                 <Link href="https://nesma-injazat.com" target="_blank">
                                                                     Overview
+                                                                    {/* {fieldData1?.length} */}
                                                                     <i className="fa-sharp fa-solid fa-arrow-up-right"></i>
                                                                     <p>
-                                                                        Spearhead Creativity was approached by Nesma Injazat, a leader in the construction and engineering industry, with a vision to redefine their brand identity and solidify their market position. The goal was to create a brand that not only resonated with their target audience but also distinguished them in an increasingly competitive landscape.
+                                                                        {/* Spearhead Creativity was approached by Nesma Injazat, a leader in the construction and engineering industry, with a vision to redefine their brand identity and solidify their market position. The goal was to create a brand that not only resonated with their target audience but also distinguished them in an increasingly competitive landscape. */}
+                                                                        {article1?.introtext_}
                                                                     </p>
-                                                                    <p>This case study outlines the strategic process that our team followed to achieve this vision, focusing on brand development, logo design, and website creation. By the end of the project, we were able to deliver a cohesive brand narrative that encapsulated Nesma Injazat's values, mission, and future growth trajectory.</p>
+                                                                    <p>
+                                                                    {article1?.fulltext_ }
+                                                                    </p>
 
                                                                 </Link>
                                                             </h2>
                                                             <div className="offer-thumb-hover d-none d-md-block">
-                                                                <Image src={blogthumb} alt="Image" />
+                                                                <Image 
+                                                                // src={blogthumb}
+                                                                src="https://techfluxsolutions.com//web_shop////media//spearhead_243435432//blog-thumb.png"
+                                                                width={100}
+                                                                height={100} 
+                                                                alt="Image" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -172,17 +330,29 @@ const BrandingCS2 = () => {
                                                         <Image src={overview} alt="Overview Icon" style={{ display: "none" }} />
                                                         <h2>
                                                             <Link href="https://nesma-injazat.com" target="_blank">
-                                                                Challenge
+                                                                {/* Challenge */}
+                                                                {article2?.title}
                                                                 <i className="fa-sharp fa-solid fa-arrow-up-right"></i>
                                                                 <ul>
-                                                                    <li><strong>Lack of a distinct brand identity:</strong> Despite their expertise and success in their industry, the company lacked a strong visual and strategic identity that could stand out to clients and partners.</li>
-                                                                    <li><strong>Digital presence:</strong> Their online presence was minimal, with a need for a website that would effectively communicate their services and facilitate engagement.</li>
+                                                                    {/* <li><strong>Lack of a distinct brand identity:</strong> Despite their expertise and success in their industry, the company lacked a strong visual and strategic identity that could stand out to clients and partners.</li>
+                                                                    <li><strong>Digital presence:</strong> Their online presence was minimal, with a need for a website that would effectively communicate their services and facilitate engagement.</li> */}
                                                                 </ul>
-                                                                <p>Our challenge was to translate Nesma Injazat’s vision into a compelling brand that was both modern and timeless, while also developing a functional and visually engaging website to represent their offerings.</p>
+                                                                <p>
+                                                                {article2?.introtext_}
+                                                                </p>
+                                                                <p>
+                                                                {/* {article2?.fulltext_} */}
+                                                                {article2?.fulltext_ && <div dangerouslySetInnerHTML={{ __html: article2?.fulltext_ }} />}
+                                                                </p>
                                                             </Link>
                                                         </h2>
                                                         <div className="offer-thumb-hover d-none d-md-block">
-                                                            <Image src={challange} alt="Image" />
+                                                            <Image 
+                                                            // src={challange} 
+                                                            src="https:\/\/techfluxsolutions.com\/web_shop\/\/media\/spearhead_243435432\/\/challange.png"
+                                                            width={100}
+                                                            height={100}
+                                                            alt="Image" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,20 +382,29 @@ const BrandingCS2 = () => {
                                                                 <i className="fa-sharp fa-solid fa-arrow-up-right"></i>
                                                                 <h6 className="heading6"><strong>Brand Development and Research</strong></h6>
                                                                     <p>
-                                                                        We began the project with an in-depth analysis of the market, target audience, and competitors. By aligning our findings with Nesma Injazat’s mission and core values, we were able to establish a clear direction for the brand.
+                                                                        {/* We began the project with an in-depth analysis of the market, target audience, and competitors. By aligning our findings with Nesma Injazat’s mission and core values, we were able to establish a clear direction for the brand. */}
+                                                                        {article3?.introtext_}
                                                                     </p>
-                                                                    <h6 className="heading6"><strong>Logo Design</strong></h6>
+                                                                    {/* <h6 className="heading6"><strong>Logo Design</strong></h6>
                                                                     <p>
                                                                         Our design team worked to create a logo that captured Nesma Injazat’s essence: innovation, integrity, and leadership in the construction and engineering industry.
                                                                     </p>
                                                                     <h6 className="heading6"><strong>Website Design and Development</strong></h6>
                                                                     <p>
                                                                         The goal of the website was to provide a seamless user experience while showcasing Nesma Injazat’s services, projects, and core values. We employed a clean, minimalist design to ensure easy navigation while strategically placing calls-to-action to drive engagement.
+                                                                    </p> */}
+                                                                    <p>
+                                                                    {article3?.fulltext_}
                                                                     </p>
                                                             </Link>
                                                         </h2>
                                                         <div className="offer-thumb-hover d-none d-md-block">
-                                                            <Image src={approach} alt="Image" />
+                                                            <Image 
+                                                            // src={approach} 
+                                                            src="https:\/\/techfluxsolutions.com\/web_shop\/\/media\/spearhead_243435432\/\/approach-.png"
+                                                            width={100}
+                                                            height={100}
+                                                            alt="Image" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -249,15 +428,26 @@ const BrandingCS2 = () => {
                                                             <Link href="https://nesma-injazat.com/scope-of-services/" target="_blank">
                                                                  Outcome
                                                                 <i className="fa-sharp fa-solid fa-arrow-up-right"></i>
-                                                                <h6 className="heading6"><strong>Brand Development and Research</strong></h6>
-                                                                <ul>
+                                                                <h6 className="heading6"><strong>
+                                                                    {/* Brand Development and Research */}
+                                                                    {article5?.introtext_}
+                                                                    </strong></h6>
+                                                                {/* <ul>
                                                                     <li><strong>Brand Identity:</strong> The new brand identity was rolled out with a cohesive visual and strategic narrative. Nesma Injazat’s new logo is now prominently displayed across their materials, creating a lasting impact on clients and partners.</li>
                                                                     <li><strong>Website:</strong> The new website saw a significant increase in user engagement, with improved site traffic and client inquiries. The intuitive design and layout improved the overall user experience, leading to better communication of Nesma Injazat’s offerings and values.</li>
-                                                                </ul>
+                                                                </ul> */}
+                                                                <p>
+                                                                {article5?.fulltext_ }
+                                                                </p>
                                                             </Link>
                                                         </h2>
                                                         <div className="offer-thumb-hover d-none d-md-block">
-                                                            <Image src={result} alt="Image" />
+                                                            <Image 
+                                                            // src={result} 
+                                                            src="https:\/\/techfluxsolutions.com\/web_shop\/\/media\/spearhead_243435432\/\/result_.png"
+                                                            width={100}
+                                                            height={100}
+                                                            alt="Image" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -269,10 +459,19 @@ const BrandingCS2 = () => {
                                 <Image src={arrow3} alt="Brand Development" className="arrow3-img" />
 
                                 <section className="case-study-conclusion">
-                                    <Image src={conclusion} style={{}} alt="Image" className="unset fade-left" />
+                                    <Image 
+                                    src={conclusion} 
+                                    style={{}} alt="Image" 
+                                    className="unset fade-left" />
                                     <h4 className="heading4">Conclusion</h4>
-                                    <p>This project exemplifies Spearhead Creativity’s commitment to delivering excellence in brand development. By partnering with Nesma Injazat, we successfully created a brand and digital platform that will support their growth and reinforce their leadership position in the industry.</p>
-                                    <p>For more details, visit the <Link href="https://nesma-injazat.com" target="_blank" rel="noopener noreferrer"><span style={{ color: "#ff7425" }}> Nesma Injazat Website</span></Link>.</p>
+                                    <p>
+                                        {/* This project exemplifies Spearhead Creativity’s commitment to delivering excellence in brand development. By partnering with Nesma Injazat, we successfully created a brand and digital platform that will support their growth and reinforce their leadership position in the industry. */}
+                                        {article4?.introtext_}
+                                    </p>                                    
+                                        <p>
+                                            {/* For more details, visit the  */}
+                                            {article4?.fulltext_ }
+                                            <Link href="https://nesma-injazat.com" target="_blank" rel="noopener noreferrer"><span style={{ color: "#ff7425" }}> Nesma Injazat Website</span></Link>.</p>
                                 </section>
 
                             </div>
