@@ -6,7 +6,7 @@ import mail from "public/images/mail.png";
 import location from "public/images/location.png";
 import time from "public/images/time.png";
 
-const ContactMain = () => {
+const ContactMain: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,11 +14,13 @@ const ContactMain = () => {
     message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Input change handler with explicit typing for the event parameter
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Submit handler with explicit typing for the form event
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -39,7 +41,7 @@ const ContactMain = () => {
     <section className="section contact-m fade-wrapper">
       <div className="container">
         <div className="row">
-          {/* First Column - Four Boxes */}
+          {/* First Column - Contact Information */}
           <div className="col-12 col-lg-6 contact-main-box">
             <div className="row contact-box">
               <div className="col-6">
@@ -50,14 +52,10 @@ const ContactMain = () => {
                   <div className="content">
                     <h4>Phone & Fax</h4>
                     <p>
-                      <Link href="tel:197-90-56-780">
-                        Mobile : +197-90-56-780
-                      </Link>
+                      <Link href="tel:197-90-56-780">Mobile : +197-90-56-780</Link>
                     </p>
                     <p>
-                      <Link href="tel:197-90-56-780">
-                        Fax : +44-208-1234567
-                      </Link>
+                      <Link href="tel:197-90-56-780">Fax : +44-208-1234567</Link>
                     </p>
                   </div>
                 </div>
@@ -115,7 +113,7 @@ const ContactMain = () => {
             </div>
           </div>
 
-          {/* Second Column - Form */}
+          {/* Second Column - Contact Form */}
           <div className="col-12 col-lg-6 contact-main-box">
             <div className="contact-main__form fade-top">
               <h3>Leave A Message</h3>
@@ -149,7 +147,9 @@ const ContactMain = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                   >
-                    <option data-display="Subject">Subject</option>
+                    <option value="" disabled>
+                      Subject
+                    </option>
                     <option value="Account">Account</option>
                     <option value="Service">Service</option>
                     <option value="Pricing">Pricing</option>

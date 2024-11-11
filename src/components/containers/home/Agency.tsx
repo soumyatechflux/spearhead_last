@@ -555,8 +555,11 @@ const Agency: React.FC = () => {
     return <div>Loading...</div>;
   }
 
+  
+
   const listItems = stripData.data[0].article_data.fulltext_;
 
+  
   return (
     <section className="section agency">
       <div className="container">
@@ -585,7 +588,7 @@ const Agency: React.FC = () => {
                     <p className="summary">{article.data[0].article_data.introtext_}</p>
                     <Link href="/about-us" className="read-more-btn">..Read More</Link>
                   </li>
-                  {listItems?.map((item, index) => (
+                  {Array.isArray(listItems) && listItems.map((item, index) => (
                     <li className="list" key={index}>
                       <Image
                         src="/images/check.png"
